@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="java,test,mockito,">
 
 
 
@@ -79,16 +79,21 @@
 
 
 
-<meta name="description" content="Jingwl">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jingwl&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="作者：桃子妈咪链接：https://www.jianshu.com/p/3d6f76df21f9來源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。   Google在3月份推出了一个关于Android MVP架构的官方Sample，除MVP架构本身之外，在这个Sample中配备了完善的单元测试用例，这对学习如何在Android中进行单元测试具有极高的价值。这篇文章主要">
+<meta name="keywords" content="java,test,mockito">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Mockito进行Java单元测试">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/使用Mockito进行Java单元测试/index.html">
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
-<meta property="og:description" content="Jingwl">
+<meta property="og:description" content="作者：桃子妈咪链接：https://www.jianshu.com/p/3d6f76df21f9來源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。   Google在3月份推出了一个关于Android MVP架构的官方Sample，除MVP架构本身之外，在这个Sample中配备了完善的单元测试用例，这对学习如何在Android中进行单元测试具有极高的价值。这篇文章主要">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1940444-9e5a2cb54c59b31d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1940444-181b5c3c1e481881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp">
+<meta property="og:updated_time" content="2018-12-08T05:40:11.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jingwl&#39;s Blog">
-<meta name="twitter:description" content="Jingwl">
+<meta name="twitter:title" content="使用Mockito进行Java单元测试">
+<meta name="twitter:description" content="作者：桃子妈咪链接：https://www.jianshu.com/p/3d6f76df21f9來源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。   Google在3月份推出了一个关于Android MVP架构的官方Sample，除MVP架构本身之外，在这个Sample中配备了完善的单元测试用例，这对学习如何在Android中进行单元测试具有极高的价值。这篇文章主要">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1940444-9e5a2cb54c59b31d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp">
 
 
 
@@ -118,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/08/使用Mockito进行Java单元测试/">
 
 
 
 
 
-  <title>归档 | Jingwl's Blog</title>
+  <title>使用Mockito进行Java单元测试 | Jingwl's Blog</title>
   
 
 
@@ -145,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -281,317 +286,201 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/使用Mockito进行Java单元测试/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jingwl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jingwl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">使用Mockito进行Java单元测试</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-08T13:33:39+08:00">
+                2018-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/08/使用Mockito进行Java单元测试/" itemprop="url">
-              
-                <span itemprop="name">使用Mockito进行Java单元测试</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-08T13:33:39+08:00" content="2018-12-08">
-          12-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/06/文件上传-FileItem类/" itemprop="url">
-              
-                <span itemprop="name">文件上传-FileItem类</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-06T18:53:15+08:00" content="2018-12-06">
-          12-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/20/MySQL设置远程访问服务器/" itemprop="url">
-              
-                <span itemprop="name">MySQL设置远程访问服务器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-20T06:25:51+08:00" content="2018-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>作者：桃子妈咪<br>链接：<a href="https://www.jianshu.com/p/3d6f76df21f9" target="_blank" rel="noopener">https://www.jianshu.com/p/3d6f76df21f9</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+</blockquote>
+<blockquote>
+<p>Google在3月份推出了一个关于Android MVP架构的官方Sample，除MVP架构本身之外，在这个Sample中配备了完善的单元测试用例，这对学习如何在Android中进行单元测试具有极高的价值。这篇文章主要是对其中使用的Mock框架-Mockito的学习总结。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="什么是Mock？"><a href="#什么是Mock？" class="headerlink" title="什么是Mock？"></a>什么是Mock？</h4><p>Mock是虚拟对象，是为了模拟真实对象而创建的，这些虚拟对象的行为是可控的。为方便理解，可以把Mock视为『汽车碰撞实验』中的『假人』。<br><img src="https://upload-images.jianshu.io/upload_images/1940444-9e5a2cb54c59b31d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp" alt="image"><br><img src="https://upload-images.jianshu.io/upload_images/1940444-181b5c3c1e481881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp" alt="image"></p>
+<h4 id="为什么需要Mock？"><a href="#为什么需要Mock？" class="headerlink" title="为什么需要Mock？"></a>为什么需要Mock？</h4><ol>
+<li>真实软件架构中的对象行为是不确定的（eg:时间、对象的状态）</li>
+<li>真实对象的一些状态又很难构造（eg:网络抖动）</li>
+<li>真实对象在进行某种操作时需要很长时间，影响测试进度（eg:一些数据库的初始化）</li>
+<li>TDD（测试驱动开发）要求先写测试代码，再进行开发，那么经常会出现真实对象还没有开发完成的现象，又或者真实对象是一个硬件，只能模拟</li>
+<li>实际测试中需要关注真实对象如何被调用，真实对象内部状态如何</li>
+</ol>
+<p>上述的问题都是可以通过引入Mock来解决的。</p>
+<h4 id="什么是Mockito？"><a href="#什么是Mockito？" class="headerlink" title="什么是Mockito？"></a>什么是Mockito？</h4><p>Mockito是用于Java单元测试的一个Mock框架。</p>
+<h4 id="为什么选择Mockito？"><a href="#为什么选择Mockito？" class="headerlink" title="为什么选择Mockito？"></a>为什么选择Mockito？</h4><ol>
+<li>Mockito是StackOverflow社区票选的最佳Java Mock框架</li>
+<li>Github 中位于Top4的Library</li>
+<li>使用简洁、优雅的API即可写出漂亮的单元测试用例，这些单元测试语法符合自然语言，方便阅读</li>
+</ol>
+<h4 id="Mockito可以完成哪些功能？"><a href="#Mockito可以完成哪些功能？" class="headerlink" title="Mockito可以完成哪些功能？"></a>Mockito可以完成哪些功能？</h4><ol>
+<li>验证Mock对象某函数是否执行，执行次数</li>
+<li>Mock对象某函数有返回值，可以设置返回值。对于void的函数，可以设置抛出异常（即常说的安装桩）</li>
+<li>验证Mock对象函数执行顺序</li>
+<li>参数匹配（有很多内建的参数，也可以自己实现），这样使得验证函数交互或者设置返回值更加灵活</li>
+<li>可以捕获参数用于后续进一步验证或设置</li>
+</ol>
+<h4 id="Mockito常用API及使用方法"><a href="#Mockito常用API及使用方法" class="headerlink" title="Mockito常用API及使用方法"></a>Mockito常用API及使用方法</h4><ol>
+<li>创建Mock对象-创建Mock对象有两种方法</li>
+</ol>
+<ul>
+<li>使用mock函数 - <code>public static &lt;T&gt; T mock(Class&lt;T&gt; classToMock)</code></li>
+<li>使用@Mock注释 - 但必须在@Test函数中初始化或使用内建的Junit Runner</li>
+</ul>
+<ol start="2">
+<li><p>验证Mock对象函数是否执行、执行次数 - <code>public static &lt;T&gt; T verify(T mock,VerificationMode mode)</code>，其中mode可以为times(x), atLeastOnce() 或者 never()<br><code>verify(mock, times(5)).someMethod(&quot;was called five times&quot;);</code><br><code>verify(mock, atLeast(2)).someMethod(&quot;was called at least two times&quot;);</code><br><code>verify(mock, atLeastOnce()).someMethod(anyString());</code></p>
+</li>
+<li><p>给模拟对象的有返回值的函数安装桩 -<br><code>when(methodCall).thenReturn() 或 when(methodCall).thenThrow()</code></p>
+</li>
+<li><p>给模拟对象返回void的函数安装桩 -<br><code>doThrow(new RuntimeException()).when(mockObject).methodCall();</code></p>
+</li>
+<li><p>参数匹配-Mockito默认使用java的equals判断函数参数值，但有时为了更加灵活，可以使用参数匹配功能<br><code>when(mockedObject.methodCall(anyInt())).thenReturn(&quot;element&quot;)</code> <code>when(mockedObject.contains(argThat(isValid())).thenReturn(&quot;element&quot;);//isValid()是自定义的参数匹配</code></p>
+</li>
+<li><p>验证模拟对象函数执行顺序<br><code>personDAL.add(any()); personDAL.getAll(); InOrder inOrder = inOrder(personDAL); inOrder.verify(personDAL).add(any()); inOrder.verify(personDAL).getAll();</code></p>
+</li>
+<li><p>捕获模拟对象函数参数，进一步验证捕获的参数<br><code>ArgumentCaptor&lt;Person&gt; argument = ArgumentCaptor.forClass(Person.class); verify(mock).doSomething(argument.capture()); assertEquals(&quot;John&quot;, argument.getValue().getName());</code></p>
+</li>
+</ol>
+<p>关于Mockito会继续根据实际项目进一步整理实践知识。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/17/【shell脚本学习指南】第二章-入门/" itemprop="url">
-              
-                <span itemprop="name">【shell脚本学习指南】第二章-入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-17T11:16:31+08:00" content="2018-07-17">
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/15/【shell脚本】备份删除数据库脚本/" itemprop="url">
-              
-                <span itemprop="name">【shell脚本】操作MySQL数据库相关脚本</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-15T10:34:00+08:00" content="2018-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/15/【shell脚本】逐行处理文本文件/" itemprop="url">
-              
-                <span itemprop="name">【shell脚本】逐行处理文本文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-15T10:31:49+08:00" content="2018-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/09/Java遍历删除list中的元素/" itemprop="url">
-              
-                <span itemprop="name">Java遍历删除list中的元素</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-09T03:38:15+08:00" content="2018-07-09">
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/09/JAVA获取当前时间的前一天或者前几天时间/" itemprop="url">
-              
-                <span itemprop="name">JAVA获取当前时间的前一天或者前几天时间</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-07-09T03:18:27+08:00" content="2018-07-09">
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/test/" rel="tag"># test</a>
+          
+            <a href="/tags/mockito/" rel="tag"># mockito</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/06/文件上传-FileItem类/" rel="next" title="文件上传-FileItem类">
+                <i class="fa fa-chevron-left"></i> 文件上传-FileItem类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -599,6 +488,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -619,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -680,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Mock？"><span class="nav-number">1.</span> <span class="nav-text">什么是Mock？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要Mock？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要Mock？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Mockito？"><span class="nav-number">3.</span> <span class="nav-text">什么是Mockito？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么选择Mockito？"><span class="nav-number">4.</span> <span class="nav-text">为什么选择Mockito？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mockito可以完成哪些功能？"><span class="nav-number">5.</span> <span class="nav-text">Mockito可以完成哪些功能？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mockito常用API及使用方法"><span class="nav-number">6.</span> <span class="nav-text">Mockito常用API及使用方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -820,6 +738,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
