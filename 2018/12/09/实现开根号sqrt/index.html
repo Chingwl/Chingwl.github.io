@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,list,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="JAVA中循环遍历list有三种方式for循环、增强for循环（也就是常说的foreach循环）、iterator遍历。   for循环遍历list1234for (int i=0; i&amp;lt;list.size(); i++) &amp;#123;    if (list.get(i).equals(&quot;del&quot;))        list.remove(i);&amp;#125;    这种方式的问题在于，删除">
-<meta name="keywords" content="java,list">
+<meta name="description" content="原文参考链接 题目实现一个函数, 完成 开根号 的操作, 方法签名如下： double sqrt(int v, double t) 要求: 不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;   假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    ,其中 是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java遍历删除list中的元素">
-<meta property="og:url" content="http://yoursite.com/2018/07/09/Java遍历删除list中的元素/index.html">
+<meta property="og:title" content="实现开根号sqrt">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/实现开根号sqrt/index.html">
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
-<meta property="og:description" content="JAVA中循环遍历list有三种方式for循环、增强for循环（也就是常说的foreach循环）、iterator遍历。   for循环遍历list1234for (int i=0; i&amp;lt;list.size(); i++) &amp;#123;    if (list.get(i).equals(&quot;del&quot;))        list.remove(i);&amp;#125;    这种方式的问题在于，删除">
+<meta property="og:description" content="原文参考链接 题目实现一个函数, 完成 开根号 的操作, 方法签名如下： double sqrt(int v, double t) 要求: 不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;   假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    ,其中 是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T15:04:55.485Z">
+<meta property="og:image" content="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt.jpg?raw=true">
+<meta property="og:image" content="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt1.jpg?raw=true">
+<meta property="og:updated_time" content="2018-12-09T05:23:55.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java遍历删除list中的元素">
-<meta name="twitter:description" content="JAVA中循环遍历list有三种方式for循环、增强for循环（也就是常说的foreach循环）、iterator遍历。   for循环遍历list1234for (int i=0; i&amp;lt;list.size(); i++) &amp;#123;    if (list.get(i).equals(&quot;del&quot;))        list.remove(i);&amp;#125;    这种方式的问题在于，删除">
+<meta name="twitter:title" content="实现开根号sqrt">
+<meta name="twitter:description" content="原文参考链接 题目实现一个函数, 完成 开根号 的操作, 方法签名如下： double sqrt(int v, double t) 要求: 不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;   假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    ,其中 是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(">
+<meta name="twitter:image" content="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt.jpg?raw=true">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/09/Java遍历删除list中的元素/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/实现开根号sqrt/">
 
 
 
 
 
-  <title>Java遍历删除list中的元素 | Jingwl's Blog</title>
+  <title>实现开根号sqrt | Jingwl's Blog</title>
   
 
 
@@ -297,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/Java遍历删除list中的元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/实现开根号sqrt/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jingwl">
@@ -314,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java遍历删除list中的元素</h1>
+          <h1 class="post-title" itemprop="name headline">实现开根号sqrt</h1>
         
 
         <div class="post-meta">
@@ -326,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T03:38:15+08:00">
-                2018-07-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-09T11:35:14+08:00">
+                2018-12-09
               </time>
             
 
@@ -336,6 +338,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -364,38 +388,17 @@
       
 
       
-        <p>JAVA中循环遍历list有三种方式for循环、增强for循环（也就是常说的foreach循环）、iterator遍历。</p>
-<hr>
-<ol>
-<li>for循环遍历list<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (list.get(i).equals(<span class="string">"del"</span>))</span><br><span class="line">        list.remove(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，但不适合循环删除多个元素时使用。</li>
-<li>对于for循环遍历list的解决办法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++)&#123;</span><br><span class="line">    <span class="keyword">if</span> (list.get(i).equals(<span class="string">"del"</span>)) &#123;</span><br><span class="line">        list.remove(i);</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <p><a href="https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665513476&amp;idx=1&amp;sn=9b88e4c10e56f5c980b03da7cacb9d21&amp;chksm=80d67a47b7a1f351cc0c7251966884053a7a1e4be9e6c83451aae93b7abad4bf428c32547741&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">原文参考链接</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>实现一个函数, 完成 开根号 的操作, 方法签名如下：</p>
+<p>double sqrt(int v, double t)</p>
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求:"></a>要求:</h3><ul>
+<li>不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;</li>
 </ul>
-<hr>
+<ul>
+<li>假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    <img src="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt.jpg?raw=true" alt="image">,其中 <img src="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt1.jpg?raw=true" alt="image">是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(9, 0.1) ， 返回值是3.05,    就满足上面的误差范围， 因为9的平方根是3 ，  |3.05 - 3| = 0.05  ， 0.05 是小于0.1的。   如果返回值是2.95 也是满足条件的。</li>
+</ul>
 <a id="more"></a>
-<ol start="2">
-<li>增强for循环<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(String x:list)&#123;</span><br><span class="line">    <span class="keyword">if</span>(x.equals(<span class="string">"del"</span>))</span><br><span class="line">        list.remove(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>这种方式的问题在于，删除元素后继续循环会报错误信息ConcurrentModificationException，因为元素在使用的时候发生了并发的修改，导致异常抛出。但是删除完毕马上使用break跳出，则不会触发报错。</li>
-</ul>
-<hr>
-<ol start="3">
-<li>iterator遍历<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">    String x = it.next();</span><br><span class="line">    <span class="keyword">if</span>(x.equals(<span class="string">"del"</span>))&#123;</span><br><span class="line">        it.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>这种方式可以正常的循环及删除。但要注意的是，使用iterator的remove方法，如果用list的remove方法同样会报上面提到的ConcurrentModificationException错误。</li>
-</ul>
-<hr>
-<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>（1）循环删除list中特定一个元素的，可以使用三种方式中的任意一种，但在使用中要注意上面分析的各个问题。</p>
-<p>（2）循环删除list中多个元素的，应该使用迭代器iterator方式。或则for循环的修改版本。
-　　</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">double</span> t)</span></span>&#123; </span><br><span class="line">    <span class="keyword">if</span> (v &lt; <span class="number">0</span> || t == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">if</span> (v == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">double</span> m = (<span class="keyword">double</span>)v/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> h = v;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> v1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> v2 = <span class="number">0</span>;</span><br><span class="line">    System.out.println(<span class="string">"第一条测试语句："</span>+m);</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        v1 = m*m + t*t - <span class="number">2</span>*m*t;</span><br><span class="line">        v2 = m*m + t*t + <span class="number">2</span>*m*t;</span><br><span class="line">        System.out.println(<span class="string">"第二条测试语句："</span>+v1+<span class="string">"|"</span>+v2);</span><br><span class="line">        <span class="comment">/** </span></span><br><span class="line"><span class="comment">        * 限定条件为：</span></span><br><span class="line"><span class="comment">        * 假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， </span></span><br><span class="line"><span class="comment">        * 用公式表达就是：|r-根号下v| &lt;= t , </span></span><br><span class="line"><span class="comment">        * 其中 根号下v 是真实的值 ,t为给定的一个误差, 例如0.1 。</span></span><br><span class="line"><span class="comment">        * 转换表达式为：</span></span><br><span class="line"><span class="comment">        * r*r + t*t -2rt &lt;= v</span></span><br><span class="line"><span class="comment">        * r*r + t*t +2rt &gt;= v</span></span><br><span class="line"><span class="comment">        **/</span></span><br><span class="line">        <span class="keyword">if</span> ( v1 &lt;= v &amp;&amp; v2 &gt;= v )&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ( v1 &lt; v &amp;&amp; v2 &lt; v )&#123;</span><br><span class="line">                l = m;</span><br><span class="line">                m = (l + h)/<span class="number">2</span>;</span><br><span class="line">                System.out.println(<span class="string">"第三条测试语句："</span>+m);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( v1 &gt; v &amp;&amp; v2 &gt; v )&#123;</span><br><span class="line">                h = m;</span><br><span class="line">                m = (h - l)/<span class="number">2</span> + l;</span><br><span class="line">                System.out.println(<span class="string">"第四条测试语句："</span>+m);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,14 +414,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/list/" rel="tag"># list</a>
-          
-        </div>
-      
 
       
       
@@ -428,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/09/JAVA获取当前时间的前一天或者前几天时间/" rel="next" title="JAVA获取当前时间的前一天或者前几天时间">
-                <i class="fa fa-chevron-left"></i> JAVA获取当前时间的前一天或者前几天时间
+              <a href="/2018/12/09/两列数据去重问题/" rel="next" title="两列数据去重问题">
+                <i class="fa fa-chevron-left"></i> 两列数据去重问题
               </a>
             
           </div>
@@ -437,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/15/【shell脚本】逐行处理文本文件/" rel="prev" title="【shell脚本】逐行处理文本文件">
-                【shell脚本】逐行处理文本文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结："><span class="nav-number">1.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要求"><span class="nav-number">1.1.</span> <span class="nav-text">要求:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
             
 
           </div>
