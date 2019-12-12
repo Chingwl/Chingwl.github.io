@@ -14,20 +14,12 @@
           
           <category> web </category>
           
-          <category> 2019 </category>
-          
-          <category> sql </category>
-          
       </categories>
       
       
         <tags>
             
             <tag> web </tag>
-            
-            <tag> 2019 </tag>
-            
-            <tag> sql </tag>
             
         </tags>
       
@@ -62,12 +54,14 @@
           
           <category> 算法 </category>
           
-          <category> sql </category>
-          
-          <category> 2019 </category>
-          
       </categories>
       
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
       
     </entry>
     
