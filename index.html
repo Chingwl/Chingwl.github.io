@@ -536,12 +536,6 @@
           <p><a href="https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665513476&amp;idx=1&amp;sn=9b88e4c10e56f5c980b03da7cacb9d21&amp;chksm=80d67a47b7a1f351cc0c7251966884053a7a1e4be9e6c83451aae93b7abad4bf428c32547741&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">原文参考链接</a></p>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>实现一个函数, 完成 开根号 的操作, 方法签名如下：</p>
 <p>double sqrt(int v, double t)</p>
-<h3 id="要求"><a href="#要求" class="headerlink" title="要求:"></a>要求:</h3><ul>
-<li>不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;</li>
-</ul>
-<ul>
-<li>假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    <img src="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt.jpg?raw=true" alt="image">,其中 <img src="https://github.com/chingwl/graph_bed/blob/master/blog/sqrt1.jpg?raw=true" alt="image">是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(9, 0.1) ， 返回值是3.05,    就满足上面的误差范围， 因为9的平方根是3 ，  |3.05 - 3| = 0.05  ， 0.05 是小于0.1的。   如果返回值是2.95 也是满足条件的。</li>
-</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/09/实现开根号sqrt/#more" rel="contents">
@@ -954,10 +948,6 @@
 <hr>
 <p>1.boolean  isFormField():</p>
 <p>isFormField方法用来判断FileItem对象里面封装的数据是一个普通文本表单字段，还是一个文件表单字段。如果是普通文本表单字段，返回一个true否则返回一个false。因此可以用该方法判断是否是普通表单域还是文件上传表单域。</p>
-<p>2.String getName():</p>
-<p>getName方法用来获得文件上传字段中的文件名。</p>
-<p>3.String getFieldName():</p>
-<p>getFieldName方法用来返回表单标签的name属性的值。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/06/文件上传-FileItem类/#more" rel="contents">
@@ -1660,12 +1650,6 @@
 <li>for循环遍历list<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (list.get(i).equals(<span class="string">"del"</span>))</span><br><span class="line">        list.remove(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<ul>
-<li>这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，但不适合循环删除多个元素时使用。</li>
-<li>对于for循环遍历list的解决办法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++)&#123;</span><br><span class="line">    <span class="keyword">if</span> (list.get(i).equals(<span class="string">"del"</span>)) &#123;</span><br><span class="line">        list.remove(i);</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/09/Java遍历删除list中的元素/#more" rel="contents">
