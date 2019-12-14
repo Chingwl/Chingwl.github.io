@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -87,12 +94,12 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/chingwl/graph-bed/blob/master/blog/session%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%BA%8F%E5%9B%BE.jpg?raw=true">
-<meta property="og:updated_time" content="2019-12-14T05:26:23.662Z">
+<meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg">
+<meta property="og:updated_time" content="2019-12-14T09:58:18.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入分析Session和Cookie">
 <meta name="twitter:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
-<meta name="twitter:image" content="https://github.com/chingwl/graph-bed/blob/master/blog/session%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%BA%8F%E5%9B%BE.jpg?raw=true">
+<meta name="twitter:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg">
 
 
 
@@ -370,6 +377,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
 
           
 
@@ -461,7 +499,7 @@
 <h3 id="持久级别的-Cookie"><a href="#持久级别的-Cookie" class="headerlink" title="持久级别的 Cookie"></a>持久级别的 Cookie</h3><p>保存在硬盘的Cookie，只要设置了过期时间就是硬盘级别Cookie。</p>
 <hr>
 <p>好的，现在cookie保存在了客户端，当我们去请求一个URL时，浏览器会根据这个URL路径将符合条件的Cookie放在请求头中传给服务器。</p>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>各位客官看到这里实属不易，��，但我们还是要想想，Cookie是有大小限制和数量限制的，并且越来越多的Cookie代表客户端和服务器的传输量增加，可不可以每次传的时候不传所有cookie值，而只传一个唯一ID，通过这个ID直接在服务器查找用户信息呢？答案是有的，这就是我们的session。</p>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>各位客官看到这里实属不易，但我们还是要想想，Cookie是有大小限制和数量限制的，并且越来越多的Cookie代表客户端和服务器的传输量增加，可不可以每次传的时候不传所有cookie值，而只传一个唯一ID，通过这个ID直接在服务器查找用户信息呢？答案是有的，这就是我们的session。</p>
 <h3 id="理解Session"><a href="#理解Session" class="headerlink" title="理解Session"></a>理解Session</h3><h4 id="Session-是啥？"><a href="#Session-是啥？" class="headerlink" title="Session 是啥？"></a>Session 是啥？</h4><p>Session是基于Cookie来工作的，同一个客户端每次访问服务器时，只要当浏览器在第一次访问服务器时，服务器设置一个id并保存一些信息(例如登陆就保存用户信息，视具体情况)，并把这个id通过Cookie存到客户端，客户端每次和服务器交互时只传这个id，就可以实现维持浏览器和服务器的状态，而这个ID通常是NAME为JSESSIONID的一个Cookie。</p>
 <h4 id="Session-有哈好处啊？"><a href="#Session-有哈好处啊？" class="headerlink" title="Session 有哈好处啊？"></a>Session 有哈好处啊？</h4><p>session 的信息是存储在服务器端，所以很好的解决了安全性问题</p>
 <h4 id="让-Session-正常工作的4种方式"><a href="#让-Session-正常工作的4种方式" class="headerlink" title="让 Session 正常工作的4种方式"></a>让 Session 正常工作的4种方式</h4><ol>
@@ -471,7 +509,7 @@
 <li>通过隐藏表单传递SessionID</li>
 </ol>
 <h4 id="Session-的工作时序图"><a href="#Session-的工作时序图" class="headerlink" title="Session 的工作时序图"></a>Session 的工作时序图</h4><p>我们先来看看 session 工作的时序图</p>
-<p><img src="https://github.com/chingwl/graph-bed/blob/master/blog/session%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%BA%8F%E5%9B%BE.jpg?raw=true" alt="sessions时序图"></p>
+<p><img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg" alt="session时序图"></p>
 <h4 id="一、创建Session"><a href="#一、创建Session" class="headerlink" title="一、创建Session"></a>一、创建Session</h4><p>当客户端访问到服务器，服务器会为这个客户端通过request.getSession()方法创建一个Session，如果当前SessionID还没有对应的HttpSession对象，就创建一个新的，并添加到org.apache.catalina.Manager的sessions容器中保存，这就做到了对状态的保持。<br>当然，这个SessionID是唯一的。</p>
 <h4 id="二、session保存"><a href="#二、session保存" class="headerlink" title="二、session保存"></a>二、session保存</h4><p>由图可知，session对象已经保存在了Manager类中，StandardManager作为实现类，通过requestedSessionId从StandardManager的sessions集合中取出StandardSession对象。  </p>
 <p>我们来看看StandardManager时如何对所有StandardSession对象进行生命周期管理</p>
@@ -487,12 +525,26 @@
 <p>session的声明周期是从创建到超时过期  </p>
 <p>也就是说，当session创建后，浏览器关闭，会话级别的Cookie被销毁，如果没有超过设定时间，该SessionID对应的session是没有被销毁的，</p>
 <h5 id="检查session失效"><a href="#检查session失效" class="headerlink" title="检查session失效"></a>检查session失效</h5><p>检查每个Session是否失效是在Tomcat的一个后台线程完成的(backgroundProcess()方法中)；除了后台进程检验session是否失效外，调用request.getSession()也会检查该session是否过期，当然，调用这种方法如果过期的话又会重新创建一个新的session。</p>
+<h2 id="做个总结"><a href="#做个总结" class="headerlink" title="做个总结"></a>做个总结</h2><h3 id="相同点和不同点"><a href="#相同点和不同点" class="headerlink" title="相同点和不同点"></a>相同点和不同点</h3><h4 id="相同点-有关系的地方"><a href="#相同点-有关系的地方" class="headerlink" title="相同点(有关系的地方)"></a>相同点(有关系的地方)</h4><p>Session和Cookie都是为了让http协议又状态而存在<br>Session通过Cookie工作，Cookie传输的SessionID让Session知道这个客户端到底是谁</p>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>Session将信息保存到服务器，Cookie将信息保存在客户端</p>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>当浏览器第一次访问服务器时，服务器创建Session并将SessionID通过Cookie带给浏览器保存在客户端，同时服务器根据业务逻辑保存相应的客户端信息保存在session中；客户端再访问时上传Cookie，服务器得到Cookie后获取里面的SessionID，来维持状态。</p>
 
       
     </div>
     
     
     
+
+    <div>
+      
+         <div>
+    
+         <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
 
     
 
@@ -504,7 +556,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web/" rel="tag"># web</a>
+            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
           
         </div>
       
@@ -657,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要cookie和session"><span class="nav-number">1.</span> <span class="nav-text">为什么需要cookie和session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的创建"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性中-Domain-的作用"><span class="nav-number">2.3.</span> <span class="nav-text">属性中 Domain 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始创建-Cookie"><span class="nav-number">2.4.</span> <span class="nav-text">开始创建 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-的分类"><span class="nav-number">3.</span> <span class="nav-text">Cookie 的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话级别的-Cookie"><span class="nav-number">3.1.</span> <span class="nav-text">会话级别的 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久级别的-Cookie"><span class="nav-number">3.2.</span> <span class="nav-text">持久级别的 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">4.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解Session"><span class="nav-number">4.1.</span> <span class="nav-text">理解Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-是啥？"><span class="nav-number">4.1.1.</span> <span class="nav-text">Session 是啥？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-有哈好处啊？"><span class="nav-number">4.1.2.</span> <span class="nav-text">Session 有哈好处啊？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让-Session-正常工作的4种方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">让 Session 正常工作的4种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-的工作时序图"><span class="nav-number">4.1.4.</span> <span class="nav-text">Session 的工作时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建Session"><span class="nav-number">4.1.5.</span> <span class="nav-text">一、创建Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、session保存"><span class="nav-number">4.1.6.</span> <span class="nav-text">二、session保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、session的销毁"><span class="nav-number">4.1.7.</span> <span class="nav-text">三、session的销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检查session失效"><span class="nav-number">4.1.7.1.</span> <span class="nav-text">检查session失效</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要cookie和session"><span class="nav-number">1.</span> <span class="nav-text">为什么需要cookie和session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的创建"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性中-Domain-的作用"><span class="nav-number">2.3.</span> <span class="nav-text">属性中 Domain 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始创建-Cookie"><span class="nav-number">2.4.</span> <span class="nav-text">开始创建 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-的分类"><span class="nav-number">3.</span> <span class="nav-text">Cookie 的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话级别的-Cookie"><span class="nav-number">3.1.</span> <span class="nav-text">会话级别的 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久级别的-Cookie"><span class="nav-number">3.2.</span> <span class="nav-text">持久级别的 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">4.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解Session"><span class="nav-number">4.1.</span> <span class="nav-text">理解Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-是啥？"><span class="nav-number">4.1.1.</span> <span class="nav-text">Session 是啥？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-有哈好处啊？"><span class="nav-number">4.1.2.</span> <span class="nav-text">Session 有哈好处啊？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让-Session-正常工作的4种方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">让 Session 正常工作的4种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-的工作时序图"><span class="nav-number">4.1.4.</span> <span class="nav-text">Session 的工作时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建Session"><span class="nav-number">4.1.5.</span> <span class="nav-text">一、创建Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、session保存"><span class="nav-number">4.1.6.</span> <span class="nav-text">二、session保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、session的销毁"><span class="nav-number">4.1.7.</span> <span class="nav-text">三、session的销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检查session失效"><span class="nav-number">4.1.7.1.</span> <span class="nav-text">检查session失效</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做个总结"><span class="nav-number">5.</span> <span class="nav-text">做个总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相同点和不同点"><span class="nav-number">5.1.</span> <span class="nav-text">相同点和不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点-有关系的地方"><span class="nav-number">5.1.1.</span> <span class="nav-text">相同点(有关系的地方)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">5.1.2.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">5.2.</span> <span class="nav-text">工作流程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -677,12 +729,25 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  | <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jingwl</span>
+  <span class="author" itemprop="copyrightHolder">Jingwl</span>  | 
 
+  
+
+<!--
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.3k</span>
   
 </div>
 
@@ -700,6 +765,13 @@
 
 
 
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共7.3k字</span>
+</div>
+
         
 
 
@@ -710,7 +782,7 @@
 
         
       </div>
-    </footer>
+    </div></footer>
 
     
       <div class="back-to-top">
@@ -741,8 +813,6 @@
 
   
 
-
-  
 
 
 
@@ -782,11 +852,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
