@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T12:46:32.526Z">
+<meta property="og:updated_time" content="2019-12-15T12:50:04.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux技巧">
 <meta name="twitter:description" content="在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。">
@@ -402,7 +402,7 @@
       
         <p>在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。</p>
 <a id="more"></a>
-<h4 id="批量替换文件内容"><a href="#批量替换文件内容" class="headerlink" title="批量替换文件内容"></a>批量替换文件内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 批量替换内容 ossfs-bj 批量替换为 ossfs/bj</span><br><span class="line">grep &quot;ossfs-bj&quot; -rl ./ | xargs sed -i &quot;s/ossfs-bj/ossfs\/bj/g&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="批量替换文件内容"><a href="#批量替换文件内容" class="headerlink" title="批量替换文件内容"></a>批量替换文件内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 批量替换内容 ossfs-bj 批量替换为 ossfs/bj</span><br><span class="line">grep &quot;ossfs-bj&quot; -rl ./ | xargs sed -i &quot;s/ossfs-bj/ossfs\/bj/g&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="批量修改文件后缀"><a href="#批量修改文件后缀" class="headerlink" title="批量修改文件后缀"></a>批量修改文件后缀</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 把.html 后缀的改成 .php后缀</span><br><span class="line">rename &quot;s/.html/.php/&quot; *</span><br></pre></td></tr></table></figure>
 
       
