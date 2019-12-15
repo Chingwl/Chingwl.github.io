@@ -94,12 +94,12 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg">
-<meta property="og:updated_time" content="2019-12-14T09:58:18.361Z">
+<meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019-12-15-01.jpg">
+<meta property="og:updated_time" content="2019-12-15T03:57:32.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入分析Session和Cookie">
 <meta name="twitter:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
-<meta name="twitter:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg">
+<meta name="twitter:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019-12-15-01.jpg">
 
 
 
@@ -509,7 +509,7 @@
 <li>通过隐藏表单传递SessionID</li>
 </ol>
 <h4 id="Session-的工作时序图"><a href="#Session-的工作时序图" class="headerlink" title="Session 的工作时序图"></a>Session 的工作时序图</h4><p>我们先来看看 session 工作的时序图</p>
-<p><img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/blog/2019/session-work.jpg" alt="session时序图"></p>
+<p><img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019-12-15-01.jpg" alt="session时序图"></p>
 <h4 id="一、创建Session"><a href="#一、创建Session" class="headerlink" title="一、创建Session"></a>一、创建Session</h4><p>当客户端访问到服务器，服务器会为这个客户端通过request.getSession()方法创建一个Session，如果当前SessionID还没有对应的HttpSession对象，就创建一个新的，并添加到org.apache.catalina.Manager的sessions容器中保存，这就做到了对状态的保持。<br>当然，这个SessionID是唯一的。</p>
 <h4 id="二、session保存"><a href="#二、session保存" class="headerlink" title="二、session保存"></a>二、session保存</h4><p>由图可知，session对象已经保存在了Manager类中，StandardManager作为实现类，通过requestedSessionId从StandardManager的sessions集合中取出StandardSession对象。  </p>
 <p>我们来看看StandardManager时如何对所有StandardSession对象进行生命周期管理</p>
