@@ -95,7 +95,7 @@
 <meta property="og:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019-12-15-01.jpg">
-<meta property="og:updated_time" content="2019-12-15T03:57:32.271Z">
+<meta property="og:updated_time" content="2019-12-15T06:28:05.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入分析Session和Cookie">
 <meta name="twitter:description" content="作者：PatrickLee666链接：https://juejin.im/post/5b7c1f4d6fb9a019f221ca14来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k
+                  2.6k
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  9
                 </span>
               
             </div>
@@ -510,9 +510,20 @@
 </ol>
 <h4 id="Session-的工作时序图"><a href="#Session-的工作时序图" class="headerlink" title="Session 的工作时序图"></a>Session 的工作时序图</h4><p>我们先来看看 session 工作的时序图</p>
 <p><img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019-12-15-01.jpg" alt="session时序图"></p>
-<h4 id="一、创建Session"><a href="#一、创建Session" class="headerlink" title="一、创建Session"></a>一、创建Session</h4><p>当客户端访问到服务器，服务器会为这个客户端通过request.getSession()方法创建一个Session，如果当前SessionID还没有对应的HttpSession对象，就创建一个新的，并添加到org.apache.catalina.Manager的sessions容器中保存，这就做到了对状态的保持。<br>当然，这个SessionID是唯一的。</p>
-<h4 id="二、session保存"><a href="#二、session保存" class="headerlink" title="二、session保存"></a>二、session保存</h4><p>由图可知，session对象已经保存在了Manager类中，StandardManager作为实现类，通过requestedSessionId从StandardManager的sessions集合中取出StandardSession对象。  </p>
-<p>我们来看看StandardManager时如何对所有StandardSession对象进行生命周期管理</p>
+<h4 id="一、创建Session"><a href="#一、创建Session" class="headerlink" title="一、创建Session"></a>一、创建Session</h4><p>当客户端访问到服务器，服务器会为这个客户端通过request.getSession()方法创建一个Session，如果当前SessionID还没有对应的HttpSession对象，就创建一个新的，并添加到org.apache.catalina.Manager的sessions容器中保存，这就做到了对状态的保持。  </p>
+<p>当然，这个SessionID是唯一的。  </p>
+<p>一个常见的误解是以为session在有客户端访问时就被创建，然而事实是直到某server端程序调用 HttpServletRequest.getSession(true)这样的语句时才被创建。  </p>
+<p>注意如果JSP没有显示的使用 <code>&lt;% @page session=&quot;false&quot;%&gt;</code> 关闭session，则JSP文件在编译成Servlet时将会自动加上这样一条语句 <code>HttpSession session = HttpServletRequest.getSession(true);</code><br>这也是JSP中隐含的 session对象的来历。<br>由于session会消耗内存资源，因此，如果不打算使用session，应该在所有的JSP中关闭它。</p>
+<p>引申:</p>
+<ol>
+<li>访问*.html的静态资源因为不会被编译为Servlet，也就不涉及session的问题。</li>
+<li>当JSP页面没有显式禁止session的时候，在打开浏览器第一次请求该jsp的时候，服务器会自动为其创建一个session，并赋予其一个sessionID，发送给客户端的浏览器。以后客户端接着请求本应用中其他资源的时候，会自动在请求头上添加：<br><code>Cookie:JSESSIONID=客户端第一次拿到的session ID</code><br>这样，服务器端在接到请求时候，就会收到session ID，并根据ID在内存中找到之前创建的session对象，提供给请求使用。这也是session使用的基本原理</li>
+</ol>
+<p>—-搞不懂这个，就永远不明白session的原理。</p>
+<h4 id="二、session保存"><a href="#二、session保存" class="headerlink" title="二、session保存"></a>二、session保存</h4><p>session存放在哪里： </p>
+<ul>
+<li>服务器端的内存中。不过session可以通过特殊的方式做持久化管理。</li>
+</ul>
 <p>当Servlet容器关闭：</p>
 <ul>
 <li>StandardManager将持久化没过期的StandardSession对象(必须调用Servlet容器中的stop和start命令，不能直接kill)</li>
@@ -522,9 +533,20 @@
 <li>StandardManager初始化会重读这个文件，解析出所有session对象。</li>
 </ul>
 <h4 id="三、session的销毁"><a href="#三、session的销毁" class="headerlink" title="三、session的销毁"></a>三、session的销毁</h4><p>这里有一个误区，也是我之前的错误理解，就是我将session的生命周期理解成一次会话，浏览器打开就创建，浏览器关闭就销毁，这样理解是错的！！  </p>
-<p>session的声明周期是从创建到超时过期  </p>
-<p>也就是说，当session创建后，浏览器关闭，会话级别的Cookie被销毁，如果没有超过设定时间，该SessionID对应的session是没有被销毁的，</p>
-<h5 id="检查session失效"><a href="#检查session失效" class="headerlink" title="检查session失效"></a>检查session失效</h5><p>检查每个Session是否失效是在Tomcat的一个后台线程完成的(backgroundProcess()方法中)；除了后台进程检验session是否失效外，调用request.getSession()也会检查该session是否过期，当然，调用这种方法如果过期的话又会重新创建一个新的session。</p>
+<ol>
+<li>Session超时：超时指的是连续一定时间服务器没有收到该Session所对应客户端的请求，并且这个时间超过了服务器设置的Session超时的最大时间。</li>
+<li>程序调用HttpSession.invalidate()</li>
+<li>服务器关闭或服务停止</li>
+</ol>
+<h4 id="四、检查session失效"><a href="#四、检查session失效" class="headerlink" title="四、检查session失效"></a>四、检查session失效</h4><p>检查每个Session是否失效是在Tomcat的一个后台线程完成的(backgroundProcess()方法中)；除了后台进程检验session是否失效外，调用request.getSession()也会检查该session是否过期，当然，调用这种方法如果过期的话又会重新创建一个新的session。</p>
+<h4 id="五、session的id是从哪里来的，sessionID是如何使用的"><a href="#五、session的id是从哪里来的，sessionID是如何使用的" class="headerlink" title="五、session的id是从哪里来的，sessionID是如何使用的"></a>五、session的id是从哪里来的，sessionID是如何使用的</h4><p>当客户端第一次请求session对象时候，服务器会为客户端创建一个session，并将通过特殊算法算出一个session的ID，用来标识该session对象，当浏览器下次（session继续有效时）请求别的资源的时候，浏览器会偷偷地将sessionID放置到请求头中，服务器接收到请求后就得到该请求的sessionID，服务器找到该id的session返还给请求者（Servlet）使用。一个会话只能有一个session对象，对session来说是只认id不认人。</p>
+<h4 id="六、同一客户端机器多次请求同一个资源，session一样吗？"><a href="#六、同一客户端机器多次请求同一个资源，session一样吗？" class="headerlink" title="六、同一客户端机器多次请求同一个资源，session一样吗？"></a>六、同一客户端机器多次请求同一个资源，session一样吗？</h4><p>一般来说，每次请求都会新创建一个session。</p>
+<p>其实，这个也不一定的，总结下：  </p>
+<ol>
+<li>对于多标签的浏览器（比如360浏览器）来说，在一个浏览器窗口中，多个标签同时访问一个页面，session是一个。 </li>
+<li>对于多个浏览器窗口之间，同时或者相隔很短时间访问一个页面，session是多个的，和浏览器的进程有关。  </li>
+<li>对于一个同一个浏览器窗口，直接录入url访问同一应用的不同资源，session是一样的。  </li>
+</ol>
 <h2 id="做个总结"><a href="#做个总结" class="headerlink" title="做个总结"></a>做个总结</h2><h3 id="相同点和不同点"><a href="#相同点和不同点" class="headerlink" title="相同点和不同点"></a>相同点和不同点</h3><h4 id="相同点-有关系的地方"><a href="#相同点-有关系的地方" class="headerlink" title="相同点(有关系的地方)"></a>相同点(有关系的地方)</h4><p>Session和Cookie都是为了让http协议又状态而存在<br>Session通过Cookie工作，Cookie传输的SessionID让Session知道这个客户端到底是谁</p>
 <h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>Session将信息保存到服务器，Cookie将信息保存在客户端</p>
 <h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>当浏览器第一次访问服务器时，服务器创建Session并将SessionID通过Cookie带给浏览器保存在客户端，同时服务器根据业务逻辑保存相应的客户端信息保存在session中；客户端再访问时上传Cookie，服务器得到Cookie后获取里面的SessionID，来维持状态。</p>
@@ -713,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要cookie和session"><span class="nav-number">1.</span> <span class="nav-text">为什么需要cookie和session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的创建"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性中-Domain-的作用"><span class="nav-number">2.3.</span> <span class="nav-text">属性中 Domain 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始创建-Cookie"><span class="nav-number">2.4.</span> <span class="nav-text">开始创建 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-的分类"><span class="nav-number">3.</span> <span class="nav-text">Cookie 的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话级别的-Cookie"><span class="nav-number">3.1.</span> <span class="nav-text">会话级别的 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久级别的-Cookie"><span class="nav-number">3.2.</span> <span class="nav-text">持久级别的 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">4.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解Session"><span class="nav-number">4.1.</span> <span class="nav-text">理解Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-是啥？"><span class="nav-number">4.1.1.</span> <span class="nav-text">Session 是啥？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-有哈好处啊？"><span class="nav-number">4.1.2.</span> <span class="nav-text">Session 有哈好处啊？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让-Session-正常工作的4种方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">让 Session 正常工作的4种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-的工作时序图"><span class="nav-number">4.1.4.</span> <span class="nav-text">Session 的工作时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建Session"><span class="nav-number">4.1.5.</span> <span class="nav-text">一、创建Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、session保存"><span class="nav-number">4.1.6.</span> <span class="nav-text">二、session保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、session的销毁"><span class="nav-number">4.1.7.</span> <span class="nav-text">三、session的销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检查session失效"><span class="nav-number">4.1.7.1.</span> <span class="nav-text">检查session失效</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做个总结"><span class="nav-number">5.</span> <span class="nav-text">做个总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相同点和不同点"><span class="nav-number">5.1.</span> <span class="nav-text">相同点和不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点-有关系的地方"><span class="nav-number">5.1.1.</span> <span class="nav-text">相同点(有关系的地方)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">5.1.2.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">5.2.</span> <span class="nav-text">工作流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要cookie和session"><span class="nav-number">1.</span> <span class="nav-text">为什么需要cookie和session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的创建"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性中-Domain-的作用"><span class="nav-number">2.3.</span> <span class="nav-text">属性中 Domain 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始创建-Cookie"><span class="nav-number">2.4.</span> <span class="nav-text">开始创建 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-的分类"><span class="nav-number">3.</span> <span class="nav-text">Cookie 的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话级别的-Cookie"><span class="nav-number">3.1.</span> <span class="nav-text">会话级别的 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久级别的-Cookie"><span class="nav-number">3.2.</span> <span class="nav-text">持久级别的 Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">4.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解Session"><span class="nav-number">4.1.</span> <span class="nav-text">理解Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-是啥？"><span class="nav-number">4.1.1.</span> <span class="nav-text">Session 是啥？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-有哈好处啊？"><span class="nav-number">4.1.2.</span> <span class="nav-text">Session 有哈好处啊？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让-Session-正常工作的4种方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">让 Session 正常工作的4种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-的工作时序图"><span class="nav-number">4.1.4.</span> <span class="nav-text">Session 的工作时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建Session"><span class="nav-number">4.1.5.</span> <span class="nav-text">一、创建Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、session保存"><span class="nav-number">4.1.6.</span> <span class="nav-text">二、session保存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、session的销毁"><span class="nav-number">4.1.7.</span> <span class="nav-text">三、session的销毁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、检查session失效"><span class="nav-number">4.1.8.</span> <span class="nav-text">四、检查session失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、session的id是从哪里来的，sessionID是如何使用的"><span class="nav-number">4.1.9.</span> <span class="nav-text">五、session的id是从哪里来的，sessionID是如何使用的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、同一客户端机器多次请求同一个资源，session一样吗？"><span class="nav-number">4.1.10.</span> <span class="nav-text">六、同一客户端机器多次请求同一个资源，session一样吗？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做个总结"><span class="nav-number">5.</span> <span class="nav-text">做个总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相同点和不同点"><span class="nav-number">5.1.</span> <span class="nav-text">相同点和不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点-有关系的地方"><span class="nav-number">5.1.1.</span> <span class="nav-text">相同点(有关系的地方)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">5.1.2.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">5.2.</span> <span class="nav-text">工作流程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -751,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.5k</span>
+    <span title="Site words total count">8.1k</span>
   
 </div>
 
@@ -773,7 +795,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.5k字</span>
+  <span class="post-count">博客全站共8.1k字</span>
 </div>
 
         
