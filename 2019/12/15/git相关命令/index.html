@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号 生成ssh key，使用命令 ssh-keygen -t rsa -C &amp;quot;your_email@youremail.com&amp;quot;，your_email是你的email默认在用户的家目录下.ssh/id_rsa.pub文件里面 回到github，进">
+<meta name="description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 <meta name="keywords" content="git,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git相关命令">
 <meta property="og:url" content="http://yoursite.com/2019/12/15/git相关命令/index.html">
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
-<meta property="og:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号 生成ssh key，使用命令 ssh-keygen -t rsa -C &amp;quot;your_email@youremail.com&amp;quot;，your_email是你的email默认在用户的家目录下.ssh/id_rsa.pub文件里面 回到github，进">
+<meta property="og:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T13:21:41.859Z">
+<meta property="og:updated_time" content="2019-12-16T02:31:43.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关命令">
-<meta name="twitter:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号 生成ssh key，使用命令 ssh-keygen -t rsa -C &amp;quot;your_email@youremail.com&amp;quot;，your_email是你的email默认在用户的家目录下.ssh/id_rsa.pub文件里面 回到github，进">
+<meta name="twitter:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 
 
 
@@ -403,6 +403,9 @@
         <h2 id="Linux下Git和GitHub环境的搭建"><a href="#Linux下Git和GitHub环境的搭建" class="headerlink" title="Linux下Git和GitHub环境的搭建"></a>Linux下Git和GitHub环境的搭建</h2><ol>
 <li>安装Git，使用命令 <code>sudo apt-get install git</code></li>
 <li>创建GitHub帐号</li>
+</ol>
+<a id="more"></a>
+<ol start="3">
 <li>生成ssh key，使用命令 <code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code>，your_email是你的email<br>默认在用户的家目录下.ssh/id_rsa.pub文件里面</li>
 <li>回到github，进入Account Settings，左边选择SSH Keys，Add SSH Key,title随便填，粘贴key。</li>
 <li>测试ssh key是否成功，使用命令<code>ssh -T git@github.com</code>，如果出现You’ve successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。</li>
