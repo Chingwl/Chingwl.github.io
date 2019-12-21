@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>手动升级nextcloud</title>
+      <link href="/2019/12/21/%E6%89%8B%E5%8A%A8%E5%8D%87%E7%BA%A7nextcloud/"/>
+      <url>/2019/12/21/%E6%89%8B%E5%8A%A8%E5%8D%87%E7%BA%A7nextcloud/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>备份现有的Nextcloud Server数据库，数据目录和 config.php文件。</p><p>备份数据库<br>mysqldump -hlocalhost -uroot -proot nextcloud | gzip &gt; nextcloud.sql.gz</p></li></ol><a id="more"></a><ol start="2"><li><p>从nextcloud.com/install/下载最新的Nextcloud Server版本（存档文件）并将其解压缩 到当前安装之外的空目录中。</p><p>wget –no-check-certificate <a href="https://download.nextcloud.com/server/releases/nextcloud-17.0.0.zip" target="_blank" rel="noopener">https://download.nextcloud.com/server/releases/nextcloud-17.0.0.zip</a></p></li><li><p>停止Web服务器。</p><p>sudo systemctl stop apache2</p></li><li><p>重命名当前的Nextcloud目录nextcloud-old。</p><p>rm nextcloud-old<br>mv nextcloud nextcloud-old</p></li><li><p>解压缩新存档会创建一个nextcloud填充了新服务器文件的新目录。例如/var/www/html，将此目录及其内容复制到旧服务器的原始位置，以便再次使用/var/www/html/nextcloud。</p><p>unzip nextcloud-17.0.x.zip</p></li><li><p>将config.php文件从旧的Nextcloud目录复制到新的Nextcloud目录。</p><p>cp nextcloud-old/config/config.php nextcloud/config/</p></li><li><p>如果将data/目录保存在目录中，请将nextcloud/其从旧版本的Nextcloud复制到新目录中nextcloud/。<br>如果您将其保留在其外，nextcloud/则无需对其执行任何操作，因为其位置是使用原始配置进行的config.php，并且没有任何升级步骤会触及它。</p></li><li><p>如果您使用的是第三方应用程序，请查看新nextcloud/apps/ 目录以查看它们是否存在。<br>如果没有，请将它们从旧apps/ 目录复制到新目录。确保第三方应用程序目录的目录权限与其他目录权限相同。</p><p>cp nextcloud-old/apps/calendar/ -r nextcloud/apps/<br>cp nextcloud-old/apps/twofactor_totp/ -r nextcloud/apps/<br>cp nextcloud-old/apps/news/ -r nextcloud/apps/<br>cp nextcloud-old/apps/files_markdown/ -r nextcloud/apps/</p></li><li><p>调整文件所有权和权限：</p><p>chown -R www-data:www-data nextcloud<br>find nextcloud/ -type d -exec chmod 750 {} \;<br>find nextcloud/ -type f -exec chmod 640 {} \;</p></li><li><p>重新启动Web服务器。</p><p>sudo systemctl start apache2</p></li><li><p>现在使用命令行启动升级occ，就像Ubuntu Linux上的这个例子一样：</p><p>cd nextcloud<br>sudo -u www-data php occ upgrade</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> nextcloud </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>feilong源码学习-AggregateUtil</title>
       <link href="/2019/12/20/feilong%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-AggregateUtil/"/>
       <url>/2019/12/20/feilong%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-AggregateUtil/</url>

@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="Jingwl">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jingwl&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/阿里云/index.html">
+<meta name="description" content="备份现有的Nextcloud Server数据库，数据目录和 config.php文件。 备份数据库mysqldump -hlocalhost -uroot -proot nextcloud | gzip &amp;gt; nextcloud.sql.gz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动升级nextcloud">
+<meta property="og:url" content="http://yoursite.com/2019/12/21/手动升级nextcloud/index.html">
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
-<meta property="og:description" content="Jingwl">
+<meta property="og:description" content="备份现有的Nextcloud Server数据库，数据目录和 config.php文件。 备份数据库mysqldump -hlocalhost -uroot -proot nextcloud | gzip &amp;gt; nextcloud.sql.gz">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-21T14:44:16.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jingwl&#39;s Blog">
-<meta name="twitter:description" content="Jingwl">
+<meta name="twitter:title" content="手动升级nextcloud">
+<meta name="twitter:description" content="备份现有的Nextcloud Server数据库，数据目录和 config.php文件。 备份数据库mysqldump -hlocalhost -uroot -proot nextcloud | gzip &amp;gt; nextcloud.sql.gz">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/阿里云/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/21/手动升级nextcloud/">
 
 
 
 
 
-  <title>标签: 阿里云 | Jingwl's Blog</title>
+  <title>手动升级nextcloud | Jingwl's Blog</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -286,52 +287,241 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>阿里云<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/手动升级nextcloud/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jingwl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jingwl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/14/阿里云-OSS-挂载到服务器/" itemprop="url">
-              
-                <span itemprop="name">阿里云 OSS 挂载到服务器</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">手动升级nextcloud</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-14T22:48:50+08:00" content="2019-12-14">
-          12-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-21T22:38:57+08:00">
+                2019-12-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/nextcloud/" itemprop="url" rel="index">
+                    <span itemprop="name">nextcloud</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  464
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><p>备份现有的Nextcloud Server数据库，数据目录和 config.php文件。</p>
+<p>备份数据库<br>mysqldump -hlocalhost -uroot -proot nextcloud | gzip &gt; nextcloud.sql.gz</p>
+</li>
+</ol>
+<a id="more"></a>
+<ol start="2">
+<li><p>从nextcloud.com/install/下载最新的Nextcloud Server版本（存档文件）并将其解压缩 到当前安装之外的空目录中。</p>
+<p>wget –no-check-certificate <a href="https://download.nextcloud.com/server/releases/nextcloud-17.0.0.zip" target="_blank" rel="noopener">https://download.nextcloud.com/server/releases/nextcloud-17.0.0.zip</a></p>
+</li>
+<li><p>停止Web服务器。</p>
+<p>sudo systemctl stop apache2</p>
+</li>
+<li><p>重命名当前的Nextcloud目录nextcloud-old。</p>
+<p>rm nextcloud-old<br>mv nextcloud nextcloud-old</p>
+</li>
+<li><p>解压缩新存档会创建一个nextcloud填充了新服务器文件的新目录。例如/var/www/html，将此目录及其内容复制到旧服务器的原始位置，以便再次使用/var/www/html/nextcloud。</p>
+<p>unzip nextcloud-17.0.x.zip</p>
+</li>
+<li><p>将config.php文件从旧的Nextcloud目录复制到新的Nextcloud目录。</p>
+<p>cp nextcloud-old/config/config.php nextcloud/config/</p>
+</li>
+<li><p>如果将data/目录保存在目录中，请将nextcloud/其从旧版本的Nextcloud复制到新目录中nextcloud/。<br>如果您将其保留在其外，nextcloud/则无需对其执行任何操作，因为其位置是使用原始配置进行的config.php，并且没有任何升级步骤会触及它。</p>
+</li>
+<li><p>如果您使用的是第三方应用程序，请查看新nextcloud/apps/ 目录以查看它们是否存在。<br>如果没有，请将它们从旧apps/ 目录复制到新目录。确保第三方应用程序目录的目录权限与其他目录权限相同。</p>
+<p>cp nextcloud-old/apps/calendar/ -r nextcloud/apps/<br>cp nextcloud-old/apps/twofactor_totp/ -r nextcloud/apps/<br>cp nextcloud-old/apps/news/ -r nextcloud/apps/<br>cp nextcloud-old/apps/files_markdown/ -r nextcloud/apps/</p>
+</li>
+<li><p>调整文件所有权和权限：</p>
+<p>chown -R www-data:www-data nextcloud<br>find nextcloud/ -type d -exec chmod 750 {} \;<br>find nextcloud/ -type f -exec chmod 640 {} \;</p>
+</li>
+<li><p>重新启动Web服务器。</p>
+<p>sudo systemctl start apache2</p>
+</li>
+<li><p>现在使用命令行启动升级occ，就像Ubuntu Linux上的这个例子一样：</p>
+<p>cd nextcloud<br>sudo -u www-data php occ upgrade</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+         <div>
+    
+         <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 
       
     </div>
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/20/feilong源码学习-AggregateUtil/" rel="next" title="feilong源码学习-AggregateUtil">
+                <i class="fa fa-chevron-left"></i> feilong源码学习-AggregateUtil
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -339,6 +529,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -573,6 +767,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
