@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>vscode远程免密配置</title>
+      <link href="/2020/01/31/vscode%E8%BF%9C%E7%A8%8B%E5%85%8D%E5%AF%86%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/01/31/vscode%E8%BF%9C%E7%A8%8B%E5%85%8D%E5%AF%86%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5d4e1d366fb9a06ae17d66a8" target="_blank" rel="noopener">原文链接</a></p><a id="more"></a><h3 id="vscode远程开发插件"><a href="#vscode远程开发插件" class="headerlink" title="vscode远程开发插件"></a>vscode远程开发插件</h3><p>Remote Development</p><h3 id="配置远程免密"><a href="#配置远程免密" class="headerlink" title="配置远程免密"></a>配置远程免密</h3><ol><li><p>在本地机器生成秘钥对</p><p>windows上利用gitbash(git的命令行)，输入以下命令生成秘钥:</p><p><code>ssh-keygen -t rsa -C &quot;这里任意输入&quot;</code></p></li><li><p>在远程服务器上生成秘钥</p><p>命令与在Windows上相同：</p><p><code>ssh-keygen -t rsa -C &quot;这里任意输入&quot;</code></p></li><li><p>拷贝公钥到远程服务器上</p><p>将本地ssh的公钥(id_rsa.pub)拷贝到远程服务器的root目录下<br>然后在shell中输入如下命令：<br><code>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code>  </p></li><li><p>Remote Development 插件的配置</p><p>点击VSCode侧边栏的小屏幕标志再点击齿轮配置你的远程信息    </p><p>Host 显示在连接选项中的名字, HostName 你的ssh服务器的地址 User 你登录ssh时的用户名    </p><p>配置完之后保存就可以看到侧边栏中更新了可以连接的服务器,接下来就可以像在本地开发一样进行远程开发了  </p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> vscode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vscode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Google工作整理术-第三部分</title>
       <link href="/2020/01/29/Google%E5%B7%A5%E4%BD%9C%E6%95%B4%E7%90%86%E6%9C%AF-%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86/"/>
       <url>/2020/01/29/Google%E5%B7%A5%E4%BD%9C%E6%95%B4%E7%90%86%E6%9C%AF-%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86/</url>
