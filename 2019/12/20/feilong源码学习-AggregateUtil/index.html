@@ -439,7 +439,7 @@
 <p>在使用的时候，对于test(String…strings)，你可以直接用test()去调用，标示没有参数，也可以用去test(“aaa”)，也可以用test(new String[]{“aaa”,”bbb”})。</p>
 <p>另外如果既有test(String…strings)函数，又有test()函数，我们在调用test()时，会优先使用test()函数。只有当没有test()函数式，我们调用test()，程序才会走test(String…strings)。</p>
 <hr>
-<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用PropertyUtil类中的泛型方法getProperty(obj, propertyName)，指定方法返回类型为Number类型  </span><br><span class="line">PropertyUtil.&lt;Number&gt; getProperty(obj, propertyName)</span><br></pre></td></tr></table></figure>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用PropertyUtil类中的泛型方法getProperty(obj, propertyName)，指定方法返回类型为Number类型  </span><br><span class="line">PropertyUtil.&lt;Number&gt; getProperty(obj, propertyName)</span><br></pre></td></tr></table></figure></div>
 <hr>
 <h3 id="LRU算法原理与实践"><a href="#LRU算法原理与实践" class="headerlink" title="LRU算法原理与实践"></a>LRU算法原理与实践</h3><p><a href="https://www.jianshu.com/p/720dda0c418f" target="_blank" rel="noopener">原文链接</a></p>
 <h4 id="LRU算法简介"><a href="#LRU算法简介" class="headerlink" title="LRU算法简介"></a>LRU算法简介</h4><p>在操作系统中进行内存管理时会采用一些页面置换算法，如LRU、LFU和FIFO等。其中LRU应用较为广泛。LRU的全称是Least Recently Used，即最近最少使用算法。</p>
@@ -491,9 +491,9 @@
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>LRU算法原理较为简单，但是实现较为复杂，尤其是处理页面替换时，在Java中的LinkedHashMap的访问有序性恰好满足LRU的需求。下面通过LeetCode第146题描述下算法的实现过程</p>
 <p>样例：</p>
 <p>实现如下操作，且时间复杂度为O(1)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LRUCache cache = new LRUCache( 2 /* capacity */ );</span><br><span class="line"></span><br><span class="line">cache.put(1, 1);</span><br><span class="line">cache.put(2, 2);</span><br><span class="line">cache.get(1);       // returns 1</span><br><span class="line">cache.put(3, 3);    // evicts key 2</span><br><span class="line">cache.get(2);       // returns -1 (not found)</span><br><span class="line">cache.put(4, 4);    // evicts key 1</span><br><span class="line">cache.get(1);       // returns -1 (not found)</span><br><span class="line">cache.get(3);       // returns 3</span><br><span class="line">cache.get(4);       // returns 4</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LRUCache cache = new LRUCache( 2 /* capacity */ );</span><br><span class="line"></span><br><span class="line">cache.put(1, 1);</span><br><span class="line">cache.put(2, 2);</span><br><span class="line">cache.get(1);       // returns 1</span><br><span class="line">cache.put(3, 3);    // evicts key 2</span><br><span class="line">cache.get(2);       // returns -1 (not found)</span><br><span class="line">cache.put(4, 4);    // evicts key 1</span><br><span class="line">cache.get(1);       // returns -1 (not found)</span><br><span class="line">cache.get(3);       // returns 3</span><br><span class="line">cache.get(4);       // returns 4</span><br></pre></td></tr></table></figure></div>
 <p>代码实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class LRUCache &#123;</span><br><span class="line">    private LinkedHashMap&lt;Integer, Integer&gt; map;</span><br><span class="line">    private final int CAPACITY;</span><br><span class="line">    public LRUCache(int capacity) &#123;</span><br><span class="line">        CAPACITY = capacity;</span><br><span class="line">        map = new LinkedHashMap&lt;Integer, Integer&gt;(capacity, 0.75f, true)&#123;</span><br><span class="line">            protected boolean removeEldestEntry(Map.Entry eldest) &#123;</span><br><span class="line">                return size() &gt; CAPACITY;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    public int get(int key) &#123;</span><br><span class="line">        return map.getOrDefault(key, -1);</span><br><span class="line">    &#125;</span><br><span class="line">    public void put(int key, int value) &#123;</span><br><span class="line">        map.put(key, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class LRUCache &#123;</span><br><span class="line">    private LinkedHashMap&lt;Integer, Integer&gt; map;</span><br><span class="line">    private final int CAPACITY;</span><br><span class="line">    public LRUCache(int capacity) &#123;</span><br><span class="line">        CAPACITY = capacity;</span><br><span class="line">        map = new LinkedHashMap&lt;Integer, Integer&gt;(capacity, 0.75f, true)&#123;</span><br><span class="line">            protected boolean removeEldestEntry(Map.Entry eldest) &#123;</span><br><span class="line">                return size() &gt; CAPACITY;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    public int get(int key) &#123;</span><br><span class="line">        return map.getOrDefault(key, -1);</span><br><span class="line">    &#125;</span><br><span class="line">    public void put(int key, int value) &#123;</span><br><span class="line">        map.put(key, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <hr>
 <h2 id="Map相关知识"><a href="#Map相关知识" class="headerlink" title="Map相关知识"></a>Map相关知识</h2><p>在feilong-AggregateUtil类中，有好几处都巧用map，特此学习了一些map相关知识点记录于此。</p>
 <h3 id="HashMap-LinkedHashMap-TreeMap什么时候用"><a href="#HashMap-LinkedHashMap-TreeMap什么时候用" class="headerlink" title="HashMap/LinkedHashMap/TreeMap什么时候用"></a>HashMap/LinkedHashMap/TreeMap什么时候用</h3><ul>
@@ -637,7 +637,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -730,7 +730,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -752,7 +752,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
         

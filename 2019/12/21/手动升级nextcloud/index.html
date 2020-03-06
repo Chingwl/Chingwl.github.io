@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="备份现有的Nextcloud Server数据库，数据目录和 config.php文件。 备份数据库mysqldump -hlocalhost -uroot -proot nextcloud | gzip &amp;gt; nextcloud.sql.gz">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-11T11:04:51.537Z">
+<meta property="og:updated_time" content="2020-03-06T01:02:41.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手动升级nextcloud">
 <meta name="twitter:description" content="备份现有的Nextcloud Server数据库，数据目录和 config.php文件。 备份数据库mysqldump -hlocalhost -uroot -proot nextcloud | gzip &amp;gt; nextcloud.sql.gz">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  464
+                  465
                 </span>
               
 
@@ -435,7 +435,7 @@
 <p>sudo systemctl stop apache2</p>
 </li>
 <li><p>重命名当前的Nextcloud目录nextcloud-old。</p>
-<p>rm nextcloud-old<br>mv nextcloud nextcloud-old</p>
+<p>rm -r nextcloud-old<br>mv nextcloud nextcloud-old</p>
 </li>
 <li><p>解压缩新存档会创建一个nextcloud填充了新服务器文件的新目录。例如/var/www/html，将此目录及其内容复制到旧服务器的原始位置，以便再次使用/var/www/html/nextcloud。</p>
 <p>unzip nextcloud-17.0.x.zip</p>
@@ -573,7 +573,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -650,7 +650,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -672,7 +672,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
         

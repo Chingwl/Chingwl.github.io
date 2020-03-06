@@ -401,12 +401,12 @@
 
       
         <ul>
-<li>方案一：老方法，不推荐使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"><span class="comment">// 获取前一天的时间</span></span><br><span class="line">Date date=<span class="keyword">new</span> Date(<span class="keyword">new</span> Date().getTime()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>);</span><br><span class="line">System.out.println(sdf.format(date));</span><br></pre></td></tr></table></figure>
+<li>方案一：老方法，不推荐使用<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"><span class="comment">// 获取前一天的时间</span></span><br><span class="line">Date date=<span class="keyword">new</span> Date(<span class="keyword">new</span> Date().getTime()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>);</span><br><span class="line">System.out.println(sdf.format(date));</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
 <a id="more"></a>
 <ul>
-<li>方案二：推荐使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);  </span><br><span class="line">Date date=<span class="keyword">new</span> Date();  </span><br><span class="line">Calendar calendar = Calendar.getInstance();  </span><br><span class="line">calendar.setTime(date);  </span><br><span class="line"><span class="comment">// 获取前一天的时间</span></span><br><span class="line">calendar.add(Calendar.DATE, -<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 获取后一天的时间</span></span><br><span class="line">calendar.add(Calendar.DATE, <span class="number">1</span>);</span><br><span class="line">date = calendar.getTime();  </span><br><span class="line">System.out.println(sdf.format(date));</span><br></pre></td></tr></table></figure>
+<li>方案二：推荐使用<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);  </span><br><span class="line">Date date=<span class="keyword">new</span> Date();  </span><br><span class="line">Calendar calendar = Calendar.getInstance();  </span><br><span class="line">calendar.setTime(date);  </span><br><span class="line"><span class="comment">// 获取前一天的时间</span></span><br><span class="line">calendar.add(Calendar.DATE, -<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 获取后一天的时间</span></span><br><span class="line">calendar.add(Calendar.DATE, <span class="number">1</span>);</span><br><span class="line">date = calendar.getTime();  </span><br><span class="line">System.out.println(sdf.format(date));</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
 
@@ -526,7 +526,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +603,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -625,7 +625,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
         

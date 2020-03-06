@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T12:50:04.273Z">
+<meta property="og:updated_time" content="2020-02-21T03:32:12.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux技巧">
 <meta name="twitter:description" content="在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  97
+                  197
                 </span>
               
 
@@ -402,8 +402,11 @@
       
         <p>在此记录一些，日常与工作中经常会用到的一些Linux技巧，命令，算是做个小总结吧。</p>
 <a id="more"></a>
-<h4 id="批量替换文件内容"><a href="#批量替换文件内容" class="headerlink" title="批量替换文件内容"></a>批量替换文件内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 批量替换内容 ossfs-bj 批量替换为 ossfs/bj</span><br><span class="line">grep &quot;ossfs-bj&quot; -rl ./ | xargs sed -i &quot;s/ossfs-bj/ossfs\/bj/g&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="批量修改文件后缀"><a href="#批量修改文件后缀" class="headerlink" title="批量修改文件后缀"></a>批量修改文件后缀</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 把.html 后缀的改成 .php后缀</span><br><span class="line">rename &quot;s/.html/.php/&quot; *</span><br></pre></td></tr></table></figure>
+<h4 id="批量替换文件内容"><a href="#批量替换文件内容" class="headerlink" title="批量替换文件内容"></a>批量替换文件内容</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 批量替换内容 ossfs-bj 批量替换为 ossfs/bj</span><br><span class="line">grep "ossfs-bj" -rl ./ | xargs sed -i "s/ossfs-bj/ossfs\/bj/g"</span><br></pre></td></tr></table></figure></div>
+<h4 id="批量修改文件后缀"><a href="#批量修改文件后缀" class="headerlink" title="批量修改文件后缀"></a>批量修改文件后缀</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 把.html 后缀的改成 .php后缀</span><br><span class="line">rename "s/.html/.php/" *</span><br></pre></td></tr></table></figure></div>
+<h4 id="Linux的du用法排除某个目录"><a href="#Linux的du用法排除某个目录" class="headerlink" title="Linux的du用法排除某个目录"></a>Linux的du用法排除某个目录</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">du -sh /* --exclude="proc"</span><br><span class="line"><span class="meta">#</span> 或使用 模糊匹配 都行</span><br><span class="line">du -sh /* --exclude="*proc*"</span><br></pre></td></tr></table></figure></div>
+<h4 id="服务器日志定时清理-保留14天"><a href="#服务器日志定时清理-保留14天" class="headerlink" title="服务器日志定时清理,保留14天"></a>服务器日志定时清理,保留14天</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /usr/local/resin/log/* -name '*log*' -mtime +14 -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure></div>
+<h4 id="linux几种快速清空文件内容的方法"><a href="#linux几种快速清空文件内容的方法" class="headerlink" title="linux几种快速清空文件内容的方法"></a>linux几种快速清空文件内容的方法</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> : &gt; filename   #其中的 : 是一个占位符, 不产生任何输出.</span><br><span class="line"><span class="meta">$</span> &gt; filename</span><br><span class="line"><span class="meta">$</span> echo “” &gt; filename</span><br><span class="line"><span class="meta">$</span> echo /dev/null &gt; filename</span><br><span class="line"><span class="meta">$</span> echo &gt; filename</span><br><span class="line"><span class="meta">$</span> cat /dev/null &gt; filename</span><br><span class="line"><span class="meta">$</span> cp /dev/null filename</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -534,7 +537,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#批量替换文件内容"><span class="nav-number">1.</span> <span class="nav-text">批量替换文件内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量修改文件后缀"><span class="nav-number">2.</span> <span class="nav-text">批量修改文件后缀</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#批量替换文件内容"><span class="nav-number">1.</span> <span class="nav-text">批量替换文件内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量修改文件后缀"><span class="nav-number">2.</span> <span class="nav-text">批量修改文件后缀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux的du用法排除某个目录"><span class="nav-number">3.</span> <span class="nav-text">Linux的du用法排除某个目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器日志定时清理-保留14天"><span class="nav-number">4.</span> <span class="nav-text">服务器日志定时清理,保留14天</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linux几种快速清空文件内容的方法"><span class="nav-number">5.</span> <span class="nav-text">linux几种快速清空文件内容的方法</span></a></li></ol></div>
             
 
           </div>
@@ -627,7 +630,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -649,7 +652,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
         

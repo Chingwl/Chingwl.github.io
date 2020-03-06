@@ -425,21 +425,21 @@
         <h3 id="1-通过read命令完成"><a href="#1-通过read命令完成" class="headerlink" title="1.通过read命令完成"></a>1.通过read命令完成</h3><ul>
 <li>read命令接收标准输入，或其他文件描述符的输入，得到输入后，read命令将数据放入一个标准变量中。</li>
 <li>利用read读取文件时，每次调用read命令都会读取文件中的”一行”文本。</li>
-<li>当文件没有可读的行时，read命令将以非零状态退出。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 第一种方式 </span><br><span class="line">cat data.dat | while read line</span><br><span class="line"> do</span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span> 第二种方式</span><br><span class="line"> while read line</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done &lt; data.dat</span><br></pre></td></tr></table></figure>
+<li>当文件没有可读的行时，read命令将以非零状态退出。<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 第一种方式 </span><br><span class="line">cat data.dat | while read line</span><br><span class="line"> do</span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span> 第二种方式</span><br><span class="line"> while read line</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done &lt; data.dat</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
 <a id="more"></a>
 <h3 id="2-使用awk命令完成"><a href="#2-使用awk命令完成" class="headerlink" title="2.使用awk命令完成"></a>2.使用awk命令完成</h3><ul>
 <li>awk是一种优良的文本处理工具，提供了极其强大的功能。</li>
 <li><p>利用awk读取文件中的每行数据，并且可以对每行数据做一些处理，还可以单独处理每行数据里的每列数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat data.dat | awk '&#123;print $0&#125;'</span><br><span class="line">cat data.dat | awk '&#123;for(i=2;i&lt;NF;i++) &#123;printf $i&#125; printf "\n"&#125;'</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat data.dat | awk '&#123;print $0&#125;'</span><br><span class="line">cat data.dat | awk '&#123;for(i=2;i&lt;NF;i++) &#123;printf $i&#125; printf "\n"&#125;'</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>第1行代码输出data.dat里的每行数据，第2代码输出每行中从第2列之后的数据。<br>如果是单纯的数据或文本文件的按行读取和显示的话，使用awk命令比较方便。</p>
 </li>
 </ul>
 <h3 id="3-使用for-var-in-file-命令完成"><a href="#3-使用for-var-in-file-命令完成" class="headerlink" title="3.使用for var in file 命令完成"></a>3.使用for var in file 命令完成</h3><ul>
 <li><p>for var in file　表示变量var在file中循环取值，取值的分隔符由$IFS确定。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 方案一</span><br><span class="line"> for line in $(cat data.dat)</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br><span class="line"> </span><br><span class="line"><span class="meta"> #</span> 方案二</span><br><span class="line"> for line in `cat data.dat`</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 方案一</span><br><span class="line"> for line in $(cat data.dat)</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br><span class="line"> </span><br><span class="line"><span class="meta"> #</span> 方案二</span><br><span class="line"> for line in `cat data.dat`</span><br><span class="line"> do </span><br><span class="line">     echo "File:$&#123;line&#125;"</span><br><span class="line"> done</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>如果输入文本每行中没有空格，则line在输入文本中按换行符分隔符循环取值。</p>
 </li>
@@ -577,7 +577,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -670,7 +670,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -692,7 +692,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
         
