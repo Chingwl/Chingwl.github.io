@@ -93,13 +93,13 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="原文参考链接 题目实现一个函数, 完成 开根号 的操作, 方法签名如下： double sqrt(int v, double t)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019/2019-12-15-02.png">
-<meta property="og:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019/2019-12-15-03.png">
-<meta property="og:updated_time" content="2020-01-12T06:15:23.322Z">
+<meta property="og:image" content="http://oss.jingwl.top/graph-bed/2019/2019-12-15-02.png">
+<meta property="og:image" content="http://oss.jingwl.top/graph-bed/2019/2019-12-15-03.png">
+<meta property="og:updated_time" content="2020-04-03T15:13:28.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现开根号sqrt">
 <meta name="twitter:description" content="原文参考链接 题目实现一个函数, 完成 开根号 的操作, 方法签名如下： double sqrt(int v, double t)">
-<meta name="twitter:image" content="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019/2019-12-15-02.png">
+<meta name="twitter:image" content="http://oss.jingwl.top/graph-bed/2019/2019-12-15-02.png">
 
 
 
@@ -432,7 +432,7 @@
 <li>不能调用系统库函数, 诸如 Math.sqrt(v) 之类的;</li>
 </ul>
 <ul>
-<li>假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    <img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019/2019-12-15-02.png" alt="image">,其中 <img src="https://oss-jwl-bj.oss-cn-beijing.aliyuncs.com/graph-bed/2019/2019-12-15-03.png" alt="image">是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(9, 0.1) ， 返回值是3.05,    就满足上面的误差范围， 因为9的平方根是3 ，  |3.05 - 3| = 0.05  ， 0.05 是小于0.1的。   如果返回值是2.95 也是满足条件的。</li>
+<li>假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， 用公式表达就是：    <img src="http://oss.jingwl.top/graph-bed/2019/2019-12-15-02.png" alt="image">,其中 <img src="http://oss.jingwl.top/graph-bed/2019/2019-12-15-03.png" alt="image">是真实的值,t  为给定的一个误差, 例如0.1 。   举例而言, 我调用你的接口 sqrt(9, 0.1) ， 返回值是3.05,    就满足上面的误差范围， 因为9的平方根是3 ，  |3.05 - 3| = 0.05  ， 0.05 是小于0.1的。   如果返回值是2.95 也是满足条件的。</li>
 </ul>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">double</span> t)</span></span>&#123; </span><br><span class="line">    <span class="keyword">if</span> (v &lt; <span class="number">0</span> || t == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">if</span> (v == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">double</span> m = (<span class="keyword">double</span>)v/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> h = v;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> v1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> v2 = <span class="number">0</span>;</span><br><span class="line">    System.out.println(<span class="string">"第一条测试语句："</span>+m);</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        v1 = m*m + t*t - <span class="number">2</span>*m*t;</span><br><span class="line">        v2 = m*m + t*t + <span class="number">2</span>*m*t;</span><br><span class="line">        System.out.println(<span class="string">"第二条测试语句："</span>+v1+<span class="string">"|"</span>+v2);</span><br><span class="line">        <span class="comment">/** </span></span><br><span class="line"><span class="comment">        * 限定条件为：</span></span><br><span class="line"><span class="comment">        * 假设函数的返回结果为 r,  要求 r 要满足一定的误差条件， </span></span><br><span class="line"><span class="comment">        * 用公式表达就是：|r-根号下v| &lt;= t , </span></span><br><span class="line"><span class="comment">        * 其中 根号下v 是真实的值 ,t为给定的一个误差, 例如0.1 。</span></span><br><span class="line"><span class="comment">        * 转换表达式为：</span></span><br><span class="line"><span class="comment">        * r*r + t*t -2rt &lt;= v</span></span><br><span class="line"><span class="comment">        * r*r + t*t +2rt &gt;= v</span></span><br><span class="line"><span class="comment">        **/</span></span><br><span class="line">        <span class="keyword">if</span> ( v1 &lt;= v &amp;&amp; v2 &gt;= v )&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ( v1 &lt; v &amp;&amp; v2 &lt; v )&#123;</span><br><span class="line">                l = m;</span><br><span class="line">                m = (l + h)/<span class="number">2</span>;</span><br><span class="line">                System.out.println(<span class="string">"第三条测试语句："</span>+m);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( v1 &gt; v &amp;&amp; v2 &gt; v )&#123;</span><br><span class="line">                h = m;</span><br><span class="line">                m = (h - l)/<span class="number">2</span> + l;</span><br><span class="line">                System.out.println(<span class="string">"第四条测试语句："</span>+m);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -559,7 +559,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -570,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -581,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.3k</span>
+    <span title="Site words total count">23.8k</span>
   
 </div>
 
@@ -674,7 +674,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共23.3k字</span>
+  <span class="post-count">博客全站共23.8k字</span>
 </div>
 
         
