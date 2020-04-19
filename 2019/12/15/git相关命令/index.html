@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-16T02:31:43.034Z">
+<meta property="og:updated_time" content="2020-04-18T14:26:09.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关命令">
 <meta name="twitter:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  746
+                  1k
                 </span>
               
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -453,6 +453,29 @@
 <li><p>Finally, force update your repository<br><code>git push -f origin master</code></p>
 </li>
 </ol>
+<h2 id="自建git服务器"><a href="#自建git服务器" class="headerlink" title="自建git服务器"></a>自建git服务器</h2><ol>
+<li>安装git</li>
+</ol>
+<p><code>sudo apt-get install git</code></p>
+<ol start="2">
+<li>创建一个git用户，用来运行git服务</li>
+</ol>
+<p><code>sudo adduser git</code></p>
+<ol start="3">
+<li>创建证书登录</li>
+</ol>
+<p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</p>
+<p>对于需要登录的用户采用ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>”命令创建（windows需要打开git bash),创建的时候会提示你密钥生成的位置，以及让你生成对应的密码——一般来说，公钥会生成在.ssh路径下；</p>
+<ol start="4">
+<li>初始化仓库</li>
+</ol>
+<p>先选定一个目录作为Git仓库，假定是/repo，在/repo目录下输入命令：</p>
+<p><code>sudo git init --bare hello.git</code></p>
+<p>执行完上面的命令，Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。</p>
+<ol start="5">
+<li>拉取仓库</li>
+</ol>
+<p>git clone git@server:/repo/sample.git</p>
 
       
     </div>
@@ -640,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">1.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">2.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">3.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub的分支管理"><span class="nav-number">4.</span> <span class="nav-text">GitHub的分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">4.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">5.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">6.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">7.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">1.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">2.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">3.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub的分支管理"><span class="nav-number">4.</span> <span class="nav-text">GitHub的分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">4.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">5.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">6.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">7.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建git服务器"><span class="nav-number">8.</span> <span class="nav-text">自建git服务器</span></a></li></ol></div>
             
 
           </div>
@@ -678,7 +701,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.3k</span>
+    <span title="Site words total count">30.5k</span>
   
 </div>
 
@@ -700,7 +723,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.3k字</span>
+  <span class="post-count">博客全站共30.5k字</span>
 </div>
 
         
