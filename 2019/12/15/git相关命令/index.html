@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-19T00:53:40.351Z">
+<meta property="og:updated_time" content="2020-04-29T13:48:13.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关命令">
 <meta name="twitter:description" content="Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
@@ -476,6 +476,7 @@
 <li>拉取仓库</li>
 </ol>
 <p><code>git clone git@server:/repo/sample.git</code></p>
+<h2 id="git远程仓库地址变更"><a href="#git远程仓库地址变更" class="headerlink" title="git远程仓库地址变更"></a>git远程仓库地址变更</h2><p><code>git remote set-url origin http://192.168.100.235:9797/john/git_test.git</code></p>
 
       
     </div>
@@ -663,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">1.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">2.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">3.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub的分支管理"><span class="nav-number">4.</span> <span class="nav-text">GitHub的分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">4.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">5.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">6.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">7.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建git服务器"><span class="nav-number">8.</span> <span class="nav-text">自建git服务器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">1.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">2.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">3.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub的分支管理"><span class="nav-number">4.</span> <span class="nav-text">GitHub的分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">4.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">5.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">6.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">7.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建git服务器"><span class="nav-number">8.</span> <span class="nav-text">自建git服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git远程仓库地址变更"><span class="nav-number">9.</span> <span class="nav-text">git远程仓库地址变更</span></a></li></ol></div>
             
 
           </div>
@@ -701,7 +702,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.5k</span>
+    <span title="Site words total count">30.6k</span>
   
 </div>
 
@@ -723,7 +724,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.5k字</span>
+  <span class="post-count">博客全站共30.6k字</span>
 </div>
 
         
