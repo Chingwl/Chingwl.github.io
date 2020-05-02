@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>Docker常用命令</title>
+      <link href="/2020/05/02/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2020/05/02/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>记录一些，基本常用的docker命令</p></blockquote><a id="more"></a><h1 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h1><h2 id="Ubuntu系统安装docker"><a href="#Ubuntu系统安装docker" class="headerlink" title="Ubuntu系统安装docker"></a>Ubuntu系统安装docker</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line"><span class="meta">$</span> sudo sh get-docker.sh --mirror Aliyun</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动 docker ce：</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">$</span> sudo systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 建立docker 用户组：</span><br><span class="line"><span class="meta">$</span> sudo groupadd docker</span><br><span class="line">将当前用户加入 docker 组：</span><br><span class="line"><span class="meta">$</span> sudo usermod -aG docker $USER</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 测试docker是否安装正确：</span><br><span class="line"><span class="meta">$</span> docker run hello-world</span><br></pre></td></tr></table></figure></div><h1 id="docker常用命令"><a href="#docker常用命令" class="headerlink" title="docker常用命令"></a>docker常用命令</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查看本地镜像信息：</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line">获取镜像详细信息 ：</span><br><span class="line">docker inspect d7c24664cfc1</span><br><span class="line"></span><br><span class="line">删除镜像：</span><br><span class="line">docker rmi repository:tag</span><br><span class="line"></span><br><span class="line">下载镜像：</span><br><span class="line">docker pull /public/mysql</span><br></pre></td></tr></table></figure></div>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>投资要义</title>
       <link href="/2020/04/09/%E6%8A%95%E8%B5%84%E8%A6%81%E4%B9%89/"/>
       <url>/2020/04/09/%E6%8A%95%E8%B5%84%E8%A6%81%E4%B9%89/</url>
