@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>网站搭建</title>
+      <link href="/2020/05/11/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
+      <url>/2020/05/11/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>简易网站搭建笔记</p></blockquote><a id="more"></a><h1 id="本地mysql账户搭建"><a href="#本地mysql账户搭建" class="headerlink" title="本地mysql账户搭建"></a>本地mysql账户搭建</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE wordpress;</span><br><span class="line">MariaDB [(none)]&gt; GRANT ALL ON wordpress.* to 'wordpress'@'localhost' IDENTIFIED BY 'v3LIdfs37sh34ngk8';</span><br><span class="line">MariaDB [(none)]&gt; FLUSH PRIVILEGES;</span><br><span class="line">MariaDB [(none)]&gt; exit;</span><br></pre></td></tr></table></figure><h1 id="php-5-6-安装"><a href="#php-5-6-安装" class="headerlink" title="php 5.6 安装"></a>php 5.6 安装</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装 php 5.6</span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y php5.6-common php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-gd php5.6-curl php5.6-json php5.6-fpm php5.6-zip php5.6-mcrypt libapache2-mod-php5.6</span><br></pre></td></tr></table></figure></div><h1 id="php7-2-和-php5-6版本-切换"><a href="#php7-2-和-php5-6版本-切换" class="headerlink" title="php7.2 和 php5.6版本 切换"></a>php7.2 和 php5.6版本 切换</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PHP 5.6 =&gt; PHP 7.2</span><br><span class="line"> sudo a2dismod php5.6</span><br><span class="line"> sudo a2enmod php7.2</span><br><span class="line"> sudo service apache2 restart</span><br><span class="line"> sudo update-alternatives --set php /usr/bin/php7.2</span><br><span class="line"></span><br><span class="line">PHP 7.2 =&gt; PHP 5.6</span><br><span class="line"> sudo a2dismod php7.2</span><br><span class="line"> sudo a2enmod php5.6</span><br><span class="line"> sudo service apache2 restart</span><br><span class="line"> sudo update-alternatives --set php /usr/bin/php5.6</span><br></pre></td></tr></table></figure></div>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 网站搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>分级A</title>
       <link href="/2020/05/03/%E5%88%86%E7%BA%A7A/"/>
       <url>/2020/05/03/%E5%88%86%E7%BA%A7A/</url>
