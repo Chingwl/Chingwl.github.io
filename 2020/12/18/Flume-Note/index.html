@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://oss.jingwl.top/graph-bed/pic-go/20201218132123.png">
 <meta property="og:image" content="http://oss.jingwl.top/graph-bed/pic-go/20201218132256.png">
 <meta property="og:image" content="http://oss.jingwl.top/graph-bed/pic-go/20201218132357.png">
-<meta property="og:updated_time" content="2020-12-18T05:31:59.832Z">
+<meta property="og:updated_time" content="2020-12-18T05:52:10.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flume Note">
 <meta name="twitter:description" content="官方文档-1.9.0">
@@ -561,7 +561,11 @@
 </li>
 <li><p>Spooling Directory Source</p>
 <p>SpoolSource监测配置的目录下新增的文件，并将文件中的数据读取出来，可实现准实时。</p>
-<p>需要注意两点：<br> 拷贝到spool目录下的文件不可以再打开编辑。<br> spool目录下不可包含相应的子目录。</p>
+<p>需要注意两点：</p>
+<ol>
+<li>拷贝到spool目录下的文件不可以再打开编辑。</li>
+<li>spool目录下不可包含相应的子目录。</li>
+</ol>
 <p>在实际使用的过程中，可以结合log4j使用，使用log4j的时候，将log4j的文件分割机制设为1分钟一次，将文件拷贝到spool的监控目录。log4j有一个TimeRolling的插件，可以把log4j分割的文件到spool目录。基本能实时的监控。</p>
 <p>Flume在传完文件之后，将会修改文件的后缀，变为.COMPLETED（后缀也可以在配置文件中灵活指定） </p>
 </li>
