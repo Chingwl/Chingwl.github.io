@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="mysql,">
+  <meta name="keywords" content="MySQL,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="本文主要记录一下，经过实操的mysql数据目录修改方案；Server version: 5.7.28-0ubuntu0.18.04.4 (Ubuntu)">
-<meta name="keywords" content="mysql">
+<meta name="description" content="本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu mysql datadir 目录修改">
-<meta property="og:url" content="http://yoursite.com/2020/03/15/Ubuntu-mysql-datadir-目录修改/index.html">
+<meta property="og:title" content="MySQL 常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/12/20/MySQL-常用命令/index.html">
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
-<meta property="og:description" content="本文主要记录一下，经过实操的mysql数据目录修改方案；Server version: 5.7.28-0ubuntu0.18.04.4 (Ubuntu)">
+<meta property="og:description" content="本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-15T11:10:31.000Z">
+<meta property="og:updated_time" content="2020-12-19T07:38:14.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu mysql datadir 目录修改">
-<meta name="twitter:description" content="本文主要记录一下，经过实操的mysql数据目录修改方案；Server version: 5.7.28-0ubuntu0.18.04.4 (Ubuntu)">
+<meta name="twitter:title" content="MySQL 常用命令">
+<meta name="twitter:description" content="本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/15/Ubuntu-mysql-datadir-目录修改/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/20/MySQL-常用命令/">
 
 
 
 
 
-  <title>Ubuntu mysql datadir 目录修改 | Jingwl's Blog</title>
+  <title>MySQL 常用命令 | Jingwl's Blog</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/Ubuntu-mysql-datadir-目录修改/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/MySQL-常用命令/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jingwl">
@@ -319,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu mysql datadir 目录修改</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL 常用命令</h1>
         
 
         <div class="post-meta">
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-15T18:50:02+08:00">
-                2020-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-20T13:16:57+08:00">
+                2019-12-20
               </time>
             
 
@@ -341,28 +341,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -385,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  199
+                  1.2k
                 </span>
               
 
@@ -401,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -422,11 +400,34 @@
       
 
       
-        <blockquote>
-<p>本文主要记录一下，经过实操的mysql数据目录修改方案；<br>Server version: 5.7.28-0ubuntu0.18.04.4 (Ubuntu)</p>
-</blockquote>
+        <p>本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找</p>
 <a id="more"></a>
-<ol>
+<h2 id="MySQL-字段相关命令"><a href="#MySQL-字段相关命令" class="headerlink" title="MySQL 字段相关命令"></a>MySQL 字段相关命令</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- mysql表新增字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> filed <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在指定字段名后新增字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> filed <span class="built_in">DECIMAL</span>(<span class="number">16</span>,<span class="number">2</span>) <span class="keyword">DEFAULT</span> <span class="string">'0.00'</span> <span class="keyword">COMMENT</span> <span class="string">''</span> <span class="keyword">AFTER</span> filed;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- hive表新增字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tmp.tmp_20xx <span class="keyword">add</span> <span class="keyword">columns</span>(usr_id <span class="built_in">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表删除字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t2 <span class="keyword">drop</span> <span class="keyword">column</span> c;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表修改字段类型</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> DIM_INTEGRAL_TYPE <span class="keyword">MODIFY</span> PRODUCT_ID <span class="built_in">int</span>(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表修改字段名称类型</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">CHANGE</span> old_field new_field <span class="built_in">VARCHAR</span>(<span class="number">16</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>;</span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-用戶及权限相关"><a href="#MySQL-用戶及权限相关" class="headerlink" title="MySQL 用戶及权限相关"></a>MySQL 用戶及权限相关</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 更新mysql用户的密码</span></span><br><span class="line"><span class="keyword">use</span> mysql</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'password'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'user_name'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建用户 host为localhost时，表示可本地登录；使用通配符%时，表示可以从任意远程主机登陆。</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'username'</span>@<span class="string">'host'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 限制用户权限</span></span><br><span class="line"><span class="comment">--‘db_test’为指定的数据库，’user_test’是限制的用户，’localhost’表示只能本地访问，如果想让远程IP访问，可将’localhost’换成’%’</span></span><br><span class="line"><span class="comment">-- GRANT SELECT, INSERT, UPDATE, REFERENCES, DELETE, CREATE, DROP, ALTER, INDEX, CREATE VIEW, SHOW VIEW ON `db_test`.* TO 'user_test'@'localhost';</span></span><br><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">ON</span> db_test.* <span class="keyword">to</span> <span class="string">'user_test'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br><span class="line"><span class="comment">-- 刷新</span></span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-表及索引相关命令"><a href="#MySQL-表及索引相关命令" class="headerlink" title="MySQL 表及索引相关命令"></a>MySQL 表及索引相关命令</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 修改表名</span></span><br><span class="line"><span class="keyword">ALTER</span>  <span class="keyword">TABLE</span> old_table <span class="keyword">RENAME</span> <span class="keyword">TO</span> new_table_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建索引</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">INDEX</span> index_name (column_list);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> (column_list);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (column_list);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除索引</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> talbe_name;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查找表的占用大小 数据大小 索引大小</span></span><br><span class="line"><span class="keyword">SELECT</span> table_name <span class="keyword">as</span> <span class="string">'表名'</span> ,table_comment <span class="keyword">as</span> <span class="string">'表注释'</span>,table_rows <span class="keyword">as</span> <span class="string">'条数'</span>,data_length <span class="keyword">as</span> <span class="string">'数据大小'</span>,index_length <span class="keyword">as</span> <span class="string">'索引大小'</span>,(data_length + index_length) <span class="keyword">as</span> <span class="string">'总大小'</span></span><br><span class="line"><span class="keyword">FROM</span> information_schema.tables </span><br><span class="line"><span class="keyword">WHERE</span> table_schema = <span class="string">'fund'</span></span><br><span class="line"><span class="comment">-- ORDER BY data_length DESC</span></span><br><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查找库里所有表名表注释</span></span><br><span class="line"><span class="keyword">SELECT</span> table_name 表名,TABLE_COMMENT 表注释 </span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.TABLES </span><br><span class="line"><span class="keyword">WHERE</span> table_schema=<span class="string">'audit'</span> </span><br><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改表注释</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> ODS_FP_FORECAST_AUTO_CALCULATION_INCOME_DATA <span class="keyword">COMMENT</span> <span class="string">'财务平台预测模块收入自动计算数据表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 模糊查询，批量删除表</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>( <span class="string">'DROP TABLE '</span>, <span class="keyword">GROUP_CONCAT</span>(table_name) , <span class="string">';'</span> ) <span class="keyword">AS</span> <span class="keyword">statement</span> <span class="keyword">FROM</span> information_schema.tables <span class="keyword">WHERE</span> table_schema = <span class="string">'slowquery'</span> <span class="keyword">AND</span> table_name <span class="keyword">LIKE</span> <span class="string">'tmp_%'</span>;</span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-dump相关命令"><a href="#MySQL-dump相关命令" class="headerlink" title="MySQL dump相关命令"></a>MySQL dump相关命令</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 从服务器dump表</span></span><br><span class="line">mysqldump -uusername -ppasswd -h127.0.0.1 -P3306 db tablename &gt; /root/tablename.sql</span><br><span class="line"><span class="comment">-- 从服务器dump表,只保留数据，不带表结构  加个 -t 就搞定了</span></span><br><span class="line">mysqldump -uusername -ppasswd -h127.0.0.1 -P3306 db tablename -t &gt; /root/tablename.sql</span><br><span class="line"><span class="comment">-- 从服务器dump表 附带 where 条件</span></span><br><span class="line">mysqldump -uusername -ppasswd -h127.0.0.1 -P3306 db tablename <span class="comment">--where "id &gt; 302 AND pay_type IN (1,10)" &gt; /root/tablename.sql</span></span><br><span class="line"><span class="comment">-- 备份整个数据库到1个文件</span></span><br><span class="line">mysqldump -uusername -ppasswd -h127.0.0.1 -P3306 <span class="comment">--single-transaction --verbose --default-character-set=utf8 db_name | gzip &gt; /root/dbname.sql.gz</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-保留小数点相关命令"><a href="#MySQL-保留小数点相关命令" class="headerlink" title="MySQL 保留小数点相关命令"></a>MySQL 保留小数点相关命令</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">cast</span>(<span class="number">19.16558</span> <span class="keyword">as</span> <span class="built_in">decimal</span>(<span class="number">9</span>,<span class="number">2</span>))精确到几位</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">format</span>(<span class="number">123.3434</span>,<span class="number">3</span>) 保留小数点后<span class="number">3</span>位</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">123.5</span>); 四舍五入</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">ceil</span>(<span class="number">123.5</span>);向上取整</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">floor</span>(<span class="number">123.5</span>);向下取整</span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-端口修改"><a href="#MySQL-端口修改" class="headerlink" title="MySQL 端口修改"></a>MySQL 端口修改</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查看端口 : </span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'port'</span>;</span><br><span class="line"></span><br><span class="line">修改端口 : </span><br><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line">重启服务 ：</span><br><span class="line">/etc/init.d/mysql restart</span><br></pre></td></tr></table></figure></div>
+<h2 id="MySQL-创建表相关"><a href="#MySQL-创建表相关" class="headerlink" title="MySQL 创建表相关"></a>MySQL 创建表相关</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 创建时间、更新时间</span></span><br><span class="line">INSERT_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP <span class="keyword">COMMENT</span> <span class="string">'插入时间'</span>,</span><br><span class="line">UPDATE_TIME <span class="built_in">TIMESTAMP</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line"></span><br><span class="line"><span class="comment">-- hive 建表语句</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tmp.table_name(</span><br><span class="line">  filed <span class="keyword">string</span> <span class="keyword">comment</span> <span class="string">''</span>, </span><br><span class="line">) <span class="keyword">comment</span> <span class="string">''</span></span><br><span class="line">PARTITIONED <span class="keyword">BY</span> (log_date <span class="keyword">string</span>)</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- mysql 建表语句</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name (</span><br><span class="line">  <span class="keyword">ID</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="keyword">field</span> <span class="built_in">varchar</span>(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">''</span></span><br><span class="line">  INSERT_TIME <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'插入时间'</span>,</span><br><span class="line">  UPDATE_TIME <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`ID`</span>),</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COMMENT</span>=<span class="string">''</span></span><br><span class="line">;</span><br></pre></td></tr></table></figure></div>
+<hr>
+<h2 id="MySQL-设置远程访问服务器"><a href="#MySQL-设置远程访问服务器" class="headerlink" title="MySQL 设置远程访问服务器"></a>MySQL 设置远程访问服务器</h2><ol>
+<li>配置mysqld.cnf文件  </li>
+</ol>
+<p>不同的linux版本，这个文件的位置不同。<br>以ubuntu14为例：  该文件位置为  /etc/mysql/my.cnf<br>以ubuntu18为例：  该文件位置为  /etc/mysql/mysql.conf.d/mysqld.cnf<br>编辑该文件，将 <code>bind-address = 127.0.0.1</code> 用#注释起来。</p>
+<ol start="2">
+<li>建一个远程账户  </li>
+</ol>
+<p>用root账户登录mysql : <code>#mysql -uroot  -p</code><br><code>mysql&gt; GRANT ALL ON *.* TO admin@&#39;%&#39; IDENTIFIED BY &#39;xxxx&#39; WITH GRANT OPTION;</code><br>这句话的意思 ，允许任何IP地址（上面的 % 就是这个意思）的电脑 用admin帐户  和密码（xxxx）来访问这个MySQL Server   </p>
+<ol start="3">
+<li>刷新权限  </li>
+</ol>
+<p><code>#flush privileges;</code></p>
+<ol start="4">
+<li>重新启动mysql服务  </li>
+</ol>
+<p><code>#service mysql restart</code></p>
+<hr>
+<h2 id="MySQL-datadir目录修改"><a href="#MySQL-datadir目录修改" class="headerlink" title="MySQL datadir目录修改"></a>MySQL datadir目录修改</h2><ol>
 <li>创建MySQL另外存储的目录</li>
 </ol>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /database/mysql</span><br></pre></td></tr></table></figure></div>
@@ -486,7 +487,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
           
         </div>
       
@@ -499,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/09/如何阅读一本书/" rel="next" title="如何阅读一本书">
-                <i class="fa fa-chevron-left"></i> 如何阅读一本书
+              <a href="/2019/12/15/git相关命令/" rel="next" title="git相关命令">
+                <i class="fa fa-chevron-left"></i> git相关命令
               </a>
             
           </div>
@@ -509,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/19/钻石坑里的心理状态/" rel="prev" title="钻石坑里的心理状态">
-                钻石坑里的心理状态 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/20/hexo博客搭建/" rel="prev" title="hexo博客搭建">
+                hexo博客搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -563,8 +564,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -579,7 +589,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -601,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -624,6 +634,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-字段相关命令"><span class="nav-number">1.</span> <span class="nav-text">MySQL 字段相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-用戶及权限相关"><span class="nav-number">2.</span> <span class="nav-text">MySQL 用戶及权限相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-表及索引相关命令"><span class="nav-number">3.</span> <span class="nav-text">MySQL 表及索引相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-dump相关命令"><span class="nav-number">4.</span> <span class="nav-text">MySQL dump相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-保留小数点相关命令"><span class="nav-number">5.</span> <span class="nav-text">MySQL 保留小数点相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-端口修改"><span class="nav-number">6.</span> <span class="nav-text">MySQL 端口修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-创建表相关"><span class="nav-number">7.</span> <span class="nav-text">MySQL 创建表相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-设置远程访问服务器"><span class="nav-number">8.</span> <span class="nav-text">MySQL 设置远程访问服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-datadir目录修改"><span class="nav-number">9.</span> <span class="nav-text">MySQL datadir目录修改</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -656,7 +682,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.6k</span>
+    <span title="Site words total count">41.5k</span>
   
 </div>
 
@@ -678,7 +704,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共41.6k字</span>
+  <span class="post-count">博客全站共41.5k字</span>
 </div>
 
         
