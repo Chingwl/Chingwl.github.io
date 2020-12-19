@@ -1587,6 +1587,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/【shell脚本】/" itemprop="url" rel="index">
+                    <span itemprop="name">【shell脚本】</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1646,7 +1668,7 @@
 
       
         
-          <h2 id="2-3-一个简单的脚本"><a href="#2-3-一个简单的脚本" class="headerlink" title="2.3 一个简单的脚本"></a>2.3 一个简单的脚本</h2><p>创建一个脚本，实现计算在当前系统上用户的个数<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat &gt; nusers             <span class="comment"># 建立文件，使用cat复制终端的输入</span></span></span><br><span class="line">who | wc -l                # 程序的内容</span><br><span class="line">^D                         # Ctrl-D 表示end-of-file</span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod +x nusers          <span class="comment"># 让文件拥有执行的权限</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./nusers                 <span class="comment"># 执行测试</span></span></span><br><span class="line">      6                    # 输出我们想要的结果</span><br></pre></td></tr></table></figure></p>
+          <h2 id="2-3-一个简单的脚本"><a href="#2-3-一个简单的脚本" class="headerlink" title="2.3 一个简单的脚本"></a>2.3 一个简单的脚本</h2><p>创建一个脚本，实现计算在当前系统上用户的个数<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat &gt; nusers             # 建立文件，使用cat复制终端的输入</span><br><span class="line">who | wc -l                # 程序的内容</span><br><span class="line">^D                         # Ctrl-D 表示end-of-file</span><br><span class="line"><span class="meta">$</span> chmod +x nusers          # 让文件拥有执行的权限</span><br><span class="line"><span class="meta">$</span> ./nusers                 # 执行测试</span><br><span class="line">      6                    # 输出我们想要的结果</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/17/【shell脚本学习指南】第二章-入门/#more" rel="contents">
@@ -1830,7 +1852,7 @@
           <blockquote>
 <p>备份整个库的脚本：</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">BACKUP_HOST=host</span><br><span class="line">BACKUP_USER=user</span><br><span class="line">BACKUP_PASSWORD=passwd</span><br><span class="line">BACKUP_PORT=3306</span><br><span class="line">BACKUP_DB=db</span><br><span class="line"></span><br><span class="line">bak_date=`date -d today +"%Y%m%d"`  </span><br><span class="line">bak_path="/back/mysql/audit_2_54/$bak_date" </span><br><span class="line"></span><br><span class="line">for table_name in `echo "show tables;" | mysql -u$BACKUP_USER -p$BACKUP_PASSWORD -h$BACKUP_HOST -P$BACKUP_PORT $BACKUP_DB | grep -v Tables`;</span><br><span class="line">do</span><br><span class="line">  mysqldump -h$BACKUP_HOST -u$BACKUP_USER -p$BACKUP_PASSWORD -P$BACKUP_PORT --single-transaction --verbose --default-character-set=utf8 $BACKUP_DB $table_name | gzip &gt; $&#123;bak_path&#125;/BAK_"$table_name".sql.gz</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">BACKUP_HOST=host</span><br><span class="line">BACKUP_USER=user</span><br><span class="line">BACKUP_PASSWORD=passwd</span><br><span class="line">BACKUP_PORT=3306</span><br><span class="line">BACKUP_DB=db</span><br><span class="line"></span><br><span class="line">bak_date=`date -d today +"%Y%m%d"`  </span><br><span class="line">bak_path="/back/mysql/audit_2_54/$bak_date" </span><br><span class="line"></span><br><span class="line">for table_name in `echo "show tables;" | mysql -u$BACKUP_USER -p$BACKUP_PASSWORD -h$BACKUP_HOST -P$BACKUP_PORT $BACKUP_DB | grep -v Tables`;</span><br><span class="line">do</span><br><span class="line">  mysqldump -h$BACKUP_HOST -u$BACKUP_USER -p$BACKUP_PASSWORD -P$BACKUP_PORT --single-transaction --verbose --default-character-set=utf8 $BACKUP_DB $table_name | gzip &gt; $&#123;bak_path&#125;/BAK_"$table_name".sql.gz</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
