@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-19T07:38:14.598Z">
+<meta property="og:updated_time" content="2020-12-19T09:07:31.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 常用命令">
 <meta name="twitter:description" content="本文记录一些工作与日常中会用到的一些SQL命令，需要用到的时候方便查找">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.3k
                 </span>
               
 
@@ -459,6 +459,9 @@
 <li>登录MySql并验证数据目录</li>
 </ol>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span>show variables like '%dir%';</span><br></pre></td></tr></table></figure></div>
+<hr>
+<h2 id="MySQL-表分区"><a href="#MySQL-表分区" class="headerlink" title="MySQL 表分区"></a>MySQL 表分区</h2><p><a href="https://www.jianshu.com/p/1cdd3e3c5b3c" target="_blank" rel="noopener">mysql表分区详解</a></p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 创建分区表</span></span><br><span class="line">partition by range COLUMNS(log_date) (</span><br><span class="line">  PARTITION p20201216 VALUES LESS THAN ('2020-12-17') ENGINE = InnoDB</span><br><span class="line">  ,partition pmax values less than maxvalue</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 增加表分区</span></span><br><span class="line">PARTITION p1 VALUES LESS THAN (MAXVALUE) <span class="comment">-- 这句要去掉，才可以增加分区。</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> (<span class="keyword">PARTITION</span> p20201217 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span> (<span class="string">'2020-12-18'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除表分区</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sale_data <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> s20100406 ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看表分区</span></span><br><span class="line"><span class="keyword">SELECT</span> PARTITION_NAME,TABLE_ROWS <span class="keyword">FROM</span> INFORMATION_SCHEMA.PARTITIONS <span class="keyword">WHERE</span> TABLE_NAME = <span class="string">'sale_data'</span>;</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -644,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-字段相关命令"><span class="nav-number">1.</span> <span class="nav-text">MySQL 字段相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-用戶及权限相关"><span class="nav-number">2.</span> <span class="nav-text">MySQL 用戶及权限相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-表及索引相关命令"><span class="nav-number">3.</span> <span class="nav-text">MySQL 表及索引相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-dump相关命令"><span class="nav-number">4.</span> <span class="nav-text">MySQL dump相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-保留小数点相关命令"><span class="nav-number">5.</span> <span class="nav-text">MySQL 保留小数点相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-端口修改"><span class="nav-number">6.</span> <span class="nav-text">MySQL 端口修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-创建表相关"><span class="nav-number">7.</span> <span class="nav-text">MySQL 创建表相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-设置远程访问服务器"><span class="nav-number">8.</span> <span class="nav-text">MySQL 设置远程访问服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-datadir目录修改"><span class="nav-number">9.</span> <span class="nav-text">MySQL datadir目录修改</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-字段相关命令"><span class="nav-number">1.</span> <span class="nav-text">MySQL 字段相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-用戶及权限相关"><span class="nav-number">2.</span> <span class="nav-text">MySQL 用戶及权限相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-表及索引相关命令"><span class="nav-number">3.</span> <span class="nav-text">MySQL 表及索引相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-dump相关命令"><span class="nav-number">4.</span> <span class="nav-text">MySQL dump相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-保留小数点相关命令"><span class="nav-number">5.</span> <span class="nav-text">MySQL 保留小数点相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-端口修改"><span class="nav-number">6.</span> <span class="nav-text">MySQL 端口修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-创建表相关"><span class="nav-number">7.</span> <span class="nav-text">MySQL 创建表相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-设置远程访问服务器"><span class="nav-number">8.</span> <span class="nav-text">MySQL 设置远程访问服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-datadir目录修改"><span class="nav-number">9.</span> <span class="nav-text">MySQL datadir目录修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-表分区"><span class="nav-number">10.</span> <span class="nav-text">MySQL 表分区</span></a></li></ol></div>
             
 
           </div>
@@ -682,7 +685,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.5k</span>
+    <span title="Site words total count">41.6k</span>
   
 </div>
 
@@ -704,7 +707,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共41.5k字</span>
+  <span class="post-count">博客全站共41.6k字</span>
 </div>
 
         
