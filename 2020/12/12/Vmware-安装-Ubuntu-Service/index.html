@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="Vmware 安装 Ubuntu Service 如何安装Ubuntu 20.04 LTS服务器的图文教程  安装服务器的时候替换原有的镜像地址 :  https://mirrors.aliyun.com/ubuntu/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-18T14:42:52.079Z">
+<meta property="og:updated_time" content="2020-12-27T10:55:27.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vmware 安装 Ubuntu Service">
 <meta name="twitter:description" content="Vmware 安装 Ubuntu Service 如何安装Ubuntu 20.04 LTS服务器的图文教程  安装服务器的时候替换原有的镜像地址 :  https://mirrors.aliyun.com/ubuntu/">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  967
+                  1.2k
                 </span>
               
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -495,6 +495,18 @@
 <h2 id="speedtest测速"><a href="#speedtest测速" class="headerlink" title="speedtest测速"></a>speedtest测速</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py</span><br><span class="line">chmod a+rx speedtest.py</span><br><span class="line">mv speedtest.py /usr/local/bin/speedtest</span><br><span class="line">chown root:root /usr/local/bin/speedtest</span><br></pre></td></tr></table></figure></div>
 <p>测速 ：</p>
 <p><code>speedtest</code></p>
+<hr>
+<h2 id="克隆虚拟机配置ip"><a href="#克隆虚拟机配置ip" class="headerlink" title="克隆虚拟机配置ip"></a>克隆虚拟机配置ip</h2><h3 id="获取虚拟机网络NAT配置信息"><a href="#获取虚拟机网络NAT配置信息" class="headerlink" title="获取虚拟机网络NAT配置信息"></a>获取虚拟机网络NAT配置信息</h3><p>虚拟机网络选择nat模式，从虚拟机的nat网络配置里面获取到如下信息:</p>
+<ol>
+<li>子网ip：192.168.74.0</li>
+<li>子网掩码：255.255.255.0</li>
+<li>默认网关：192.168.74.2 (在nat设置里面获取)</li>
+<li>DHCP-起始：192.168.74.128</li>
+<li>DHCP-结束：192.168.74.254</li>
+</ol>
+<h3 id="为虚拟机分配ip"><a href="#为虚拟机分配ip" class="headerlink" title="为虚拟机分配ip"></a>为虚拟机分配ip</h3><p>vim /etc/netplan/00-installer-config.yaml</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 假设</span><br><span class="line"># IP地址修改为 ： 192.168.74.128</span><br><span class="line"># 子网掩码24位即 ： 255.255.255.0</span><br><span class="line"># 网关设置为 ： 192.168.74.2</span><br><span class="line"># DNS1：192.168.74.2，DNS2：192.168.74.3</span><br><span class="line"></span><br><span class="line">network:</span><br><span class="line">    ethernets:</span><br><span class="line">        ens33:</span><br><span class="line">            dhcp4: no</span><br><span class="line">            addresses: [192.168.74.128/24]</span><br><span class="line">            optional: true</span><br><span class="line">            gateway4: 192.168.74.2</span><br><span class="line">            nameservers:</span><br><span class="line">                    addresses: [192.168.74.2,192.168.74.3]</span><br><span class="line"> </span><br><span class="line">    version: 2</span><br></pre></td></tr></table></figure></div>
+<p>执行命令<code>netplan apply</code>使配置生效</p>
 <hr>
 <h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2><ul>
 <li><a href="https://www.bennythink.com/udp53.html" target="_blank" rel="noopener">UDP 53 免费上网、DNS 隧道经验谈</a></li>
@@ -688,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vmware-安装-Ubuntu-Service"><span class="nav-number">1.</span> <span class="nav-text">Vmware 安装 Ubuntu Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备配置"><span class="nav-number">3.</span> <span class="nav-text">必备配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建root用户"><span class="nav-number">3.1.</span> <span class="nav-text">创建root用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置开机启动服务"><span class="nav-number">3.2.</span> <span class="nav-text">设置开机启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主机名"><span class="nav-number">3.3.</span> <span class="nav-text">更改主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINUX下添加512M交换分区"><span class="nav-number">3.4.</span> <span class="nav-text">LINUX下添加512M交换分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改ssh默认22端口"><span class="nav-number">3.5.</span> <span class="nav-text">修改ssh默认22端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装宝塔Linux面板"><span class="nav-number">3.6.</span> <span class="nav-text">安装宝塔Linux面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINUX下禁止ping命令的使用"><span class="nav-number">3.7.</span> <span class="nav-text">LINUX下禁止ping命令的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见软件安装"><span class="nav-number">4.</span> <span class="nav-text">常见软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统清理"><span class="nav-number">5.</span> <span class="nav-text">系统清理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他问题"><span class="nav-number">6.</span> <span class="nav-text">其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ping回复无法访问目标主机"><span class="nav-number">6.1.</span> <span class="nav-text">ping回复无法访问目标主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speedtest测速"><span class="nav-number">7.</span> <span class="nav-text">speedtest测速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">8.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vmware-安装-Ubuntu-Service"><span class="nav-number">1.</span> <span class="nav-text">Vmware 安装 Ubuntu Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备配置"><span class="nav-number">3.</span> <span class="nav-text">必备配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建root用户"><span class="nav-number">3.1.</span> <span class="nav-text">创建root用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置开机启动服务"><span class="nav-number">3.2.</span> <span class="nav-text">设置开机启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主机名"><span class="nav-number">3.3.</span> <span class="nav-text">更改主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINUX下添加512M交换分区"><span class="nav-number">3.4.</span> <span class="nav-text">LINUX下添加512M交换分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改ssh默认22端口"><span class="nav-number">3.5.</span> <span class="nav-text">修改ssh默认22端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装宝塔Linux面板"><span class="nav-number">3.6.</span> <span class="nav-text">安装宝塔Linux面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINUX下禁止ping命令的使用"><span class="nav-number">3.7.</span> <span class="nav-text">LINUX下禁止ping命令的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见软件安装"><span class="nav-number">4.</span> <span class="nav-text">常见软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统清理"><span class="nav-number">5.</span> <span class="nav-text">系统清理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他问题"><span class="nav-number">6.</span> <span class="nav-text">其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ping回复无法访问目标主机"><span class="nav-number">6.1.</span> <span class="nav-text">ping回复无法访问目标主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speedtest测速"><span class="nav-number">7.</span> <span class="nav-text">speedtest测速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#克隆虚拟机配置ip"><span class="nav-number">8.</span> <span class="nav-text">克隆虚拟机配置ip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取虚拟机网络NAT配置信息"><span class="nav-number">8.1.</span> <span class="nav-text">获取虚拟机网络NAT配置信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为虚拟机分配ip"><span class="nav-number">8.2.</span> <span class="nav-text">为虚拟机分配ip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">9.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
             
 
           </div>
@@ -726,7 +738,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.6k</span>
+    <span title="Site words total count">41.8k</span>
   
 </div>
 
@@ -748,7 +760,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共41.6k字</span>
+  <span class="post-count">博客全站共41.8k字</span>
 </div>
 
         
