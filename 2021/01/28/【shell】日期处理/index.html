@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="遍历日期">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-28T09:45:25.825Z">
+<meta property="og:updated_time" content="2021-01-28T09:46:36.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【shell】日期处理">
 <meta name="twitter:description" content="遍历日期">
@@ -424,7 +424,7 @@
       
         <h1 id="遍历日期"><a href="#遍历日期" class="headerlink" title="遍历日期"></a>遍历日期</h1><a id="more"></a>
 <p>给定2个日期，起始结束时间，遍历输出2个日期之间的每一天</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">startMonth=2021-02-01</span><br><span class="line">endMonth=2021-03-01</span><br><span class="line">while [ "$&#123;startMonth&#125;" != "$&#123;endMonth&#125;" ]</span><br><span class="line">do</span><br><span class="line">echo $&#123;startMonth&#125;</span><br><span class="line">startMonth=`date -d "-1 day ago $&#123;startMonth&#125;" +%Y-%m-%d`</span><br><span class="line">done</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">startMonth=2021-02-01</span><br><span class="line">endMonth=2021-03-01</span><br><span class="line">while [ "$&#123;startMonth&#125;" != "$&#123;endMonth&#125;" ]</span><br><span class="line">do</span><br><span class="line">echo $&#123;startMonth&#125;</span><br><span class="line">startMonth=`date -d "-1 day ago $&#123;startMonth&#125;" +%Y-%m-%d`</span><br><span class="line">don</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
