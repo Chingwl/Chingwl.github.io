@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>【shell】日期处理</title>
+      <link href="/2021/01/28/%E3%80%90shell%E3%80%91%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/"/>
+      <url>/2021/01/28/%E3%80%90shell%E3%80%91%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="遍历日期"><a href="#遍历日期" class="headerlink" title="遍历日期"></a>遍历日期</h1><a id="more"></a><p>给定2个日期，起始结束时间，遍历输出2个日期之间的每一天</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">startMonth=2021-02-01</span><br><span class="line">endMonth=2021-03-01</span><br><span class="line">while [ "$&#123;startMonth&#125;" != "$&#123;endMonth&#125;" ]</span><br><span class="line">do</span><br><span class="line">echo $&#123;startMonth&#125;</span><br><span class="line">startMonth=`date -d "-1 day ago $&#123;startMonth&#125;" +%Y-%m-%d`</span><br><span class="line">done</span><br></pre></td></tr></table></figure></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 【shell脚本】 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Java并发编程</title>
       <link href="/2020/12/27/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
       <url>/2020/12/27/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
@@ -13,9 +36,9 @@
       
         <tags>
             
-            <tag> 并发编程 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 并发编程 </tag>
             
         </tags>
       
@@ -824,9 +847,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> shell </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
