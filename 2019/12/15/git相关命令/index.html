@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jingwl&#39;s Blog">
 <meta property="og:description" content="常用命令 回退文件 git checkout HEAD -- path/file   Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-11T12:28:26.985Z">
+<meta property="og:updated_time" content="2021-04-21T02:20:31.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关命令">
 <meta name="twitter:description" content="常用命令 回退文件 git checkout HEAD -- path/file   Linux下Git和GitHub环境的搭建 安装Git，使用命令 sudo apt-get install git 创建GitHub帐号">
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1k
                 </span>
               
 
@@ -427,17 +427,6 @@
 <li>如果本地的版本不是最新的，可以使用命令 <code>git fetch origin</code></li>
 <li>把更新的内容合并到本地分支，可以使用命令 <code>git merge origin/master</code>，如果你不想手动去合并，那么你可以使用： <code>git pull origin master</code>，这个命令可以拉去最新版本并自动合并</li>
 </ol>
-<h2 id="GitHub的分支管理"><a href="#GitHub的分支管理" class="headerlink" title="GitHub的分支管理"></a>GitHub的分支管理</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
-<li>创建一个本地分支： git branch &lt;新分支名字&gt;</li>
-<li>将本地分支同步到GitHub上面： git push &lt;本地仓库名&gt; &lt;新分支名&gt;</li>
-<li>切换到新建立的分支： git checkout &lt;新分支名&gt;</li>
-<li>为你的分支加入一个新的远程端： git remote add &lt;远程端名字&gt; &lt;地址&gt;</li>
-<li>查看当前仓库有几个分支: git branch</li>
-</ol>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ol>
-<li>从本地删除一个分支： git branch -d &lt;分支名称&gt;</li>
-<li>同步到GitHub上面删除这个分支： git push &lt;本地仓库名&gt; :&lt;GitHub端分支&gt;</li>
-</ol>
 <h2 id="不用一直输入密码"><a href="#不用一直输入密码" class="headerlink" title="不用一直输入密码"></a>不用一直输入密码</h2><ol>
 <li>git config –global credential.helper store</li>
 <li>git push origin your-branch   (会让你输入用户名和密码，这时你输入就好了，然后下次再git push /pull 的时候就不用密码)</li>
@@ -468,8 +457,8 @@
 <ol start="3">
 <li>创建证书登录</li>
 </ol>
-<p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</p>
-<p>对于需要登录的用户采用ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>”命令创建（windows需要打开git bash),创建的时候会提示你密钥生成的位置，以及让你生成对应的密码——一般来说，公钥会生成在.ssh路径下；</p>
+<p>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。</p>
+<p>对于需要登录的用户采用<code>ssh-keygen -t rsa -C “youremail@example.com”</code>命令创建（windows需要打开git bash),创建的时候会提示你密钥生成的位置，以及让你生成对应的密码——一般来说，公钥会生成在.ssh路径下；</p>
 <ol start="4">
 <li>初始化仓库</li>
 </ol>
@@ -481,6 +470,23 @@
 </ol>
 <p><code>git clone git@server:/repo/sample.git</code></p>
 <h2 id="git远程仓库地址变更"><a href="#git远程仓库地址变更" class="headerlink" title="git远程仓库地址变更"></a>git远程仓库地址变更</h2><p><code>git remote set-url origin http://192.168.100.235:9797/john/git_test.git</code></p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ol>
+<li>查看本地分支 <code>git branch</code></li>
+<li>查看本地和远程分支 <code>git branch -a</code></li>
+<li><p>切换分支 <code>git checkout branchName</code></p>
+</li>
+<li><p>创建新分支(在当前状态下) <code>git branch branchName</code></p>
+</li>
+<li>创建新分支(指定提交节点) <code>git checkout -b branchName commitid</code></li>
+<li><p>将新创建的分支推送到远端 <code>git push origin branchName</code></p>
+</li>
+<li><p>删除远程分支 <code>git push origin --delete branchName</code></p>
+</li>
+<li><p>删除本地分支 <code>git branch -d branchName</code></p>
+</li>
+<li><p>同步分支列表 <code>git fetch -p</code></p>
+</li>
+</ol>
 
       
     </div>
@@ -666,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">2.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">3.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">4.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub的分支管理"><span class="nav-number">5.</span> <span class="nav-text">GitHub的分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">5.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">5.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">6.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">7.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">8.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建git服务器"><span class="nav-number">9.</span> <span class="nav-text">自建git服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git远程仓库地址变更"><span class="nav-number">10.</span> <span class="nav-text">git远程仓库地址变更</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下Git和GitHub环境的搭建"><span class="nav-number">2.</span> <span class="nav-text">Linux下Git和GitHub环境的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Git从本地上传到GitHub"><span class="nav-number">3.</span> <span class="nav-text">利用Git从本地上传到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从GitHub克隆项目到本地"><span class="nav-number">4.</span> <span class="nav-text">从GitHub克隆项目到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不用一直输入密码"><span class="nav-number">5.</span> <span class="nav-text">不用一直输入密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fatal-refusing-to-merge-unrelated-histories-解决方法"><span class="nav-number">6.</span> <span class="nav-text">fatal: refusing to merge unrelated histories 解决方法 :</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git仓库删除所有历史提交记录"><span class="nav-number">7.</span> <span class="nav-text">git仓库删除所有历史提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建git服务器"><span class="nav-number">8.</span> <span class="nav-text">自建git服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git远程仓库地址变更"><span class="nav-number">9.</span> <span class="nav-text">git远程仓库地址变更</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">10.</span> <span class="nav-text">分支管理</span></a></li></ol></div>
             
 
           </div>
